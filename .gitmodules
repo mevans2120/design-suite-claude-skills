@@ -1,0 +1,3 @@
+[submodule "hybrid-memory-bank-plugin"]
+	path = hybrid-memory-bank-plugin
+	url = https://github.com/mevans2120/hybrid-memory-bank-plugin.git
