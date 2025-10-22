@@ -1,16 +1,16 @@
 # Design Dashboard - Product Brief
 
-**Version**: 1.0  
-**Date**: October 22, 2025  
-**Status**: Phase 1 Scope Definition  
+**Version**: 1.1
+**Date**: October 22, 2025
+**Status**: Research - Iterating on Visual Review Capability  
 
 ---
 
 ## Executive Summary
 
-A dedicated design dashboard that serves as both a portfolio showcase and source of truth for active design projects. The dashboard automatically collects design deliverables from Claude design skills, presents summaries with links to full artifacts, and provides visibility into design goals, principles, and decisions across the organization.
+A dedicated design dashboard that serves as both a portfolio showcase and **central design review hub** for active design projects. The dashboard automatically collects design deliverables from Claude design skills, **displays visual content inline** (mood boards, wireframes, mockups), and provides visibility into design goals, principles, and decisions across the organization.
 
-**Key Differentiator**: While the PM dashboard handles project execution (tasks, sprints, timelines), the Design Dashboard focuses on design artifacts, rationale, and creative decisions.
+**Key Differentiator**: While the PM dashboard handles project execution (tasks, sprints, timelines), the Design Dashboard is a **visual design review platform** - making design work visible, reviewable, and accessible without opening external files.
 
 ---
 
@@ -76,10 +76,12 @@ A dedicated design dashboard that serves as both a portfolio showcase and source
    - Design principles for this project
    - Link to related PM dashboard project
 
-2. **Deliverable Collection**
+2. **Deliverable Collection & Visual Display**
    - Auto-populated from design skills outputs
    - Organized by skill/phase (Research → Concepts → Production → QA)
-   - Summary/excerpt view with "View Full Document" links
+   - **Visual content displayed inline** (mood boards, wireframes, mockups, screenshots)
+   - Text summaries with "View Full Document" for detailed docs
+   - **Image/asset preview** in summary cards
    - Configurable visibility per project (show/hide specific deliverables)
 
 3. **Design Principles Display**
@@ -103,6 +105,13 @@ A dedicated design dashboard that serves as both a portfolio showcase and source
    - Quick access to latest deliverables
    - Search within current project
 
+7. **Visual Review Capabilities** ⭐ NEW
+   - **Inline mood board display** with color palettes, typography, visual references
+   - **Embedded wireframes/mockups** viewable without external tools
+   - **Side-by-side concept comparison** for design direction selection
+   - **Image galleries** for visual deliverables
+   - **Responsive preview** for different viewports (desktop, tablet, mobile)
+
 #### Technical Requirements
 - **Framework**: Vite + Lit web components
 - **Deployment**: Runs locally (dev server)
@@ -111,9 +120,11 @@ A dedicated design dashboard that serves as both a portfolio showcase and source
 - **Responsive**: May work on mobile, but not optimized
 
 #### Integration Points
-- Links out to PM dashboard (view project tasks/sprints)
-- Links to full design artifacts (markdown, HTML, React files)
+- Links to PM dashboard (footer/nav, not prominent)
+- **Embeds visual content inline** (HTML wireframes, React components, images)
+- Links to full design artifacts for detailed documentation
 - Skills write to dashboard data store when creating deliverables
+- **Image/asset storage** in outputs directory, referenced by URL
 
 ### Phase 1 - OUT OF SCOPE
 
@@ -228,6 +239,24 @@ design-dashboard/
           "summary": "Three primary personas identified: Efficiency Seeker (40%), Price Conscious (35%), Security Focused (25%)",
           "filePath": "/mnt/user-data/outputs/personas.md",
           "createdDate": "2025-10-16",
+          "visible": true
+        },
+        {
+          "id": "deliv-002",
+          "type": "mood-board",
+          "skill": "design-concepts",
+          "title": "Visual Direction Mood Board",
+          "summary": "Clean, modern aesthetic with muted color palette and clear hierarchy",
+          "filePath": "/outputs/concepts/mood-board.md",
+          "visualAssets": {
+            "colorPalette": ["#1a1a1a", "#4a4a4a", "#2563eb", "#f3f4f6"],
+            "images": [
+              "/outputs/concepts/assets/ref-linear.png",
+              "/outputs/concepts/assets/ref-notion.png"
+            ],
+            "preview": "/outputs/concepts/assets/mood-board-preview.png"
+          },
+          "createdDate": "2025-10-18",
           "visible": true
         }
       ],
@@ -378,13 +407,17 @@ Design skills include a helper function or call a simple API/script that:
 - Link to PM Dashboard prominent
 - Scannable with clear visual sections
 
-### Feature 3: Deliverable Summary Cards
+### Feature 3: Deliverable Summary Cards (with Visual Previews)
 
 **Card Structure**:
 ```
 ┌──────────────────────────────────────────────┐
 │ [Icon] Title                      Date       │
 │ ─────────────────────────────────────────   │
+│ [VISUAL PREVIEW - if applicable]             │
+│ (Mood board colors, wireframe thumbnail,     │
+│  mockup screenshot, concept image)           │
+│                                              │
 │ Summary text (2-3 sentences showing key      │
 │ takeaways or highlights from deliverable)    │
 │                                              │
@@ -392,18 +425,29 @@ Design skills include a helper function or call a simple API/script that:
 └──────────────────────────────────────────────┘
 ```
 
+**Visual Content Types**:
+- **Mood Boards**: Color swatches, typography samples, visual references inline
+- **Wireframes**: Embedded HTML or screenshot preview
+- **Mockups**: High-fidelity design screenshots or embedded React components
+- **Concepts**: Image gallery with multiple direction thumbnails
+- **Specs**: Key screen thumbnails with annotations
+- **QA Reports**: Before/after screenshots, issue screenshots
+
 **Summary Generation**:
-Skills provide summaries when creating deliverables, or dashboard extracts:
-- Personas: Count + primary characteristics
-- Design Principles: Count + first principle
-- Concepts: Number of directions + high-level approach
-- Specs: Scope (screens covered) + key decisions
-- QA Reports: Issue count by severity + overall status
+Skills provide summaries + visual assets when creating deliverables:
+- Personas: Count + primary characteristics (text only)
+- Design Principles: Count + first principle (text only)
+- **Mood Boards: Color palette preview + 2-3 visual reference thumbnails**
+- **Concepts: Thumbnail gallery of all directions explored**
+- **Wireframes: Interactive preview or static screenshot**
+- Specs: Scope (screens covered) + key screen thumbnails
+- QA Reports: Issue count by severity + critical issue screenshots
 
 **Interaction**:
 - Hover: Slight elevation, cursor pointer
-- Click "View Full": Opens document (markdown viewer, HTML in new tab, etc.)
-- Click anywhere on card: Same as "View Full"
+- Click visual preview: Expand to full-screen or open in viewer
+- Click "View Full": Opens complete document with all details
+- Visual content loads progressively (thumbnails first, full res on demand)
 
 ### Feature 4: Configuration & Visibility
 
