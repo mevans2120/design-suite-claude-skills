@@ -1,0 +1,3 @@
+# Claude Memory - Ignore session state
+session/current.json
+session/archive/*.json
