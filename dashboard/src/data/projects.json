@@ -88,12 +88,12 @@
           "skill": "design-concepts",
           "title": "Mood Board",
           "summary": "Visual direction establishing dark-mode-first aesthetic, color palette (neutral grays with blue accent), typography (Inter), and layout patterns inspired by Linear, Notion, Storybook, and Figma.",
-          "filePath": "/outputs/design-dashboard/concepts/mood-board.md",
+          "filePath": "/outputs/design-dashboard/concepts/mood-board.html",
           "createdDate": "2025-10-22",
           "visible": true,
           "visualAssets": {
             "colorPalette": ["#0a0a0a", "#1a1a1a", "#2a2a2a", "#4a4a4a", "#2563eb", "#f3f4f6"],
-            "preview": "Color palette with dark neutrals and blue accent"
+            "preview": "Interactive HTML with color swatches, typography samples, and visual references"
           }
         },
         {
