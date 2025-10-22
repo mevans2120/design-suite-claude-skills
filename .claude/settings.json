@@ -13,7 +13,7 @@
     "PostToolUse": [
       {
         "matcher": "Bash",
-        "commandMatcher": "^git (commit|push|pull|merge|rebase)",
+        "commandMatcher": "^git status",
         "hooks": [
           {
             "type": "command",
