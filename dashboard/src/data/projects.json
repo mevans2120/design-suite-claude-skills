@@ -67,8 +67,18 @@
           "type": "insights",
           "skill": "design-research",
           "title": "Key Insights",
-          "summary": "Eight critical insights from research: visibility paradox, context is king, one dashboard serves four jobs, self-service is respect, trust requires transparency, and more.",
+          "summary": "Nine critical insights from research including: visibility paradox, context is king, visual content is critical for design communication, and more.",
           "filePath": "/outputs/design-dashboard/research/key-insights.md",
+          "createdDate": "2025-10-22",
+          "visible": true
+        },
+        {
+          "id": "deliv-004",
+          "type": "brief-evolution",
+          "skill": "design-research",
+          "title": "Brief Evolution (v1.0 → v1.1)",
+          "summary": "Research iteration discovering inline visual review as core capability. Updated brief to make dashboard a visual design review hub, not just file organization.",
+          "filePath": "/outputs/design-dashboard/research/brief-evolution.md",
           "createdDate": "2025-10-22",
           "visible": true
         }
@@ -81,7 +91,8 @@
         "Trust requires status transparency",
         "Summaries enable scanning, details enable work",
         "Design tells a story from research to validation",
-        "Design Dashboard and PM Dashboard serve complementary purposes"
+        "Design Dashboard and PM Dashboard serve complementary purposes",
+        "Visual content is critical - design work cannot be communicated through text alone"
       ]
     }
   ]
