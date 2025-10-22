@@ -31,9 +31,9 @@
           "rationale": "Trust erodes when users can't tell if information is current. Transparency builds trust."
         },
         {
-          "title": "Respect the PM Dashboard",
-          "description": "Don't duplicate PM functionality - link out for tasks, timelines, team info",
-          "rationale": "Design Dashboard focuses on design artifacts and rationale. PM Dashboard handles execution."
+          "title": "Design-Focused with Context Awareness",
+          "description": "Stay focused on design artifacts and decisions, while acknowledging the broader project ecosystem",
+          "rationale": "Dashboard succeeds by doing one thing well: making design work visible. Simple links to related tools (footer/nav) provide context without feature creep."
         },
         {
           "title": "Design Work is Storytelling",

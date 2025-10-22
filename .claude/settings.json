@@ -10,13 +10,14 @@
         ]
       }
     ],
-    "PreToolUse": [
+    "PostToolUse": [
       {
         "matcher": "Bash",
+        "commandMatcher": "^git (commit|push|pull|merge|rebase)",
         "hooks": [
           {
             "type": "command",
-            "command": "node .claude/hooks/preToolUse.js"
+            "command": "node .claude/hooks/postToolUse.js"
           }
         ]
       }
