@@ -81,6 +81,46 @@
           "filePath": "/outputs/design-dashboard/research/brief-evolution.md",
           "createdDate": "2025-10-22",
           "visible": true
+        },
+        {
+          "id": "deliv-005",
+          "type": "mood-board",
+          "skill": "design-concepts",
+          "title": "Mood Board",
+          "summary": "Visual direction establishing dark-mode-first aesthetic, color palette (neutral grays with blue accent), typography (Inter), and layout patterns inspired by Linear, Notion, Storybook, and Figma.",
+          "filePath": "/outputs/design-dashboard/concepts/mood-board.md",
+          "createdDate": "2025-10-22",
+          "visible": true,
+          "visualAssets": {
+            "colorPalette": ["#0a0a0a", "#1a1a1a", "#2a2a2a", "#4a4a4a", "#2563eb", "#f3f4f6"],
+            "preview": "Color palette with dark neutrals and blue accent"
+          }
+        },
+        {
+          "id": "deliv-006",
+          "type": "wireframe",
+          "skill": "design-concepts",
+          "title": "Projects List Wireframe",
+          "summary": "Low-fidelity HTML wireframe showing projects list view with sidebar navigation, phase filters, and project cards displaying status, metadata, and deliverable counts.",
+          "filePath": "/outputs/design-dashboard/concepts/wireframe-projects-list.html",
+          "createdDate": "2025-10-22",
+          "visible": true,
+          "visualAssets": {
+            "preview": "Interactive HTML wireframe"
+          }
+        },
+        {
+          "id": "deliv-007",
+          "type": "wireframe",
+          "skill": "design-concepts",
+          "title": "Project Detail Wireframe",
+          "summary": "Low-fidelity HTML wireframe for project detail view showing context-before-details pattern: design principles and insights prominently displayed above deliverables with inline visual previews.",
+          "filePath": "/outputs/design-dashboard/concepts/wireframe-project-detail.html",
+          "createdDate": "2025-10-22",
+          "visible": true,
+          "visualAssets": {
+            "preview": "Interactive HTML wireframe with visual content display"
+          }
         }
       ],
       "keyInsights": [
