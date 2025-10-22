@@ -57,11 +57,13 @@ web_search: "best [industry] app ui design 2025"
 web_search: "[design pattern] examples mobile"
 web_fetch: Dribbble, Behance, Awwwards for visual inspiration
 
-Create mood board markdown documenting:
+Create mood board HTML file documenting:
 - Visual directions that align with brand/goals
 - Interaction patterns that solve similar problems
-- Color palettes, typography trends
+- Color palettes (with actual color swatches, not just hex codes)
+- Typography samples (rendered at size, not described)
 - What works and why (tied to research insights)
+- Interactive component examples where relevant
 ```
 
 ### Creating Concepts
@@ -96,35 +98,94 @@ Create React artifacts with Tailwind CSS:
 
 ### Mood Board Creation
 
-Mood boards should include:
-1. **Visual Direction**: Screenshots, color palettes, typography examples
-2. **Interaction Patterns**: GIFs or descriptions of key interactions
-3. **Design Rationale**: Why these choices support user jobs and brand
-4. **Options**: Usually 2-3 different directions
+**IMPORTANT: Mood boards MUST be visual HTML files, NOT markdown.**
 
-**Format**: HTML artifact with images and annotations
+A mood board is inherently visual - stakeholders need to SEE colors, typography, spacing, and visual examples, not just read about them. Create standalone HTML files that can be opened in a browser.
+
+Mood boards should include:
+1. **Color Palette**: Actual color swatches with hex values and usage descriptions
+2. **Typography Samples**: Real text at different sizes showing the font in use
+3. **Spacing Scale**: Visual representation of spacing units (e.g., 4px, 8px, 16px bars)
+4. **Component Examples**: Interactive examples showing hover states, transitions
+5. **Inspiration References**: Screenshots or links to tools/sites that inspired the direction
+6. **Design Rationale**: Why these choices support user jobs and brand
+
+**Format**: Static HTML file (save as `.html`, NOT `.md`)
+
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Design Concept Mood Board</title>
+  <title>Mood Board - [Project Name]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #f3f4f6;
+      padding: 60px 40px;
+    }
+    .color-swatch {
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .type-sample {
+      margin: 20px 0;
+      padding: 20px;
+      background: #1a1a1a;
+      border-radius: 8px;
+    }
+    /* Add hover effects, transitions for interactive examples */
+  </style>
 </head>
-<body class="bg-gray-50">
-  <div class="max-w-6xl mx-auto p-8">
-    <h1 class="text-4xl font-bold mb-8">Design Concept: [Name]</h1>
-    
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Direction 1: [Descriptive Name]</h2>
-      <p class="mb-4">[Why this direction supports user jobs]</p>
-      <!-- Visual examples, color swatches, typography -->
-    </section>
-  </div>
+<body>
+  <h1>Mood Board - [Project Name]</h1>
+
+  <section>
+    <h2>Color Palette</h2>
+    <div class="color-swatch" style="background: #2563eb;">
+      Primary Blue - #2563eb
+    </div>
+    <!-- More color swatches -->
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="type-sample">
+      <div style="font-size: 48px; font-weight: 700;">
+        Display / 48px / Bold
+      </div>
+      <p style="font-size: 14px; color: #6b7280;">
+        font-size: 48px | font-weight: 700 | line-height: 1.2
+      </p>
+    </div>
+    <!-- More typography samples -->
+  </section>
+
+  <section>
+    <h2>Component Examples</h2>
+    <div class="card-example" style="padding: 20px; background: #1a1a1a; border-radius: 8px; transition: all 200ms;">
+      <!-- Interactive component that shows hover effects -->
+    </div>
+  </section>
 </body>
 </html>
 ```
+
+**Why HTML instead of Markdown:**
+- ✅ Stakeholders can SEE actual colors, not hex codes
+- ✅ Typography samples show the font rendered at size
+- ✅ Interactive elements demonstrate hover states
+- ✅ Spacing scale is visual, not described in text
+- ✅ Can be opened directly in browser without conversion
+- ✅ Easy to share and review
 
 ## Quality Criteria
 
