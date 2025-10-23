@@ -1,5 +1,5 @@
 id,number,name,code,description,category,phase,priority,status,dependencies,blocks,value,startDate,completedDate,notes,tags
-PROJECT_META,,Design Dashboard,DD,A centralized dashboard for tracking design projects through all phases (Research → Concepts → Production → QA) with inline visual review capabilities,,,,,,,,,,Vite + Lit Web Components,design;dashboard
+PROJECT_META,,Design Dashboard,DD,A centralized dashboard for tracking design projects through all phases (Research → Concepts → Production → QA) with inline visual review capabilities. Internal developer tool.,,,,,,,,,,Next.js 14+ App Router + React + Tailwind + shadcn/ui,design;dashboard;internal
 DD-1,1,Projects List View,,Main view showing all design projects in a responsive grid,Page,Phase 1,high,planned,,,Fast project scanning,,,Route: / or /projects,page;list
 DD-2,2,Project Detail View,,Deep view into a single project with context and deliverables,Page,Phase 1,high,planned,DD-1,,Complete project context,,,Route: /project/:id,page;detail
 DD-3,3,Sidebar Navigation,,Fixed 240px sidebar with project counts and phase filters,Navigation,Phase 1,high,planned,,,Quick access navigation,,,Includes logo and nav sections,navigation;sidebar

@@ -15,3 +15,12 @@ node_modules/
 # User-specific files
 .vscode/
 .idea/
+
+# External skill symlinks (managed via install scripts)
+.claude/skills/product-research
+.claude/skills/quality-engineering
+.claude/skills/software-development
+.claude/skills/technical-architecture
+.claude/skills/project-analyzer
+.claude/skills/project-manager
+.claude/skills/project-planner
