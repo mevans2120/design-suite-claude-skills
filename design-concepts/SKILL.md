@@ -20,8 +20,24 @@ Concept design is NOT final design - it's exploration and communication:
 1. **Brief Review**: Understand goals, constraints, research insights
 2. **Inspiration & Research**: Gather visual references, identify trends
 3. **Ideation**: Sketch multiple directions (divergent thinking)
-4. **Refinement**: Develop 2-3 strong concepts (convergent thinking)
+4. **Refinement**: **ALWAYS develop 3 distinct concepts** (convergent thinking) unless explicitly told otherwise
 5. **Presentation**: Create artifacts that tell the story and invite feedback
+
+### Why Multiple Concepts?
+Creating 3 concept variations is standard design practice:
+- **Divergent exploration**: Shows different strategic approaches, not just visual variations
+- **Better decisions**: Stakeholders choose between meaningful alternatives, not yes/no
+- **Reduced bias**: Presenting one concept feels like "approve this" vs. "which solves the problem best?"
+- **Safety in numbers**: If one direction has fatal flaw, you have alternatives ready
+- **Creative confidence**: Multiple directions show thorough exploration
+
+**What makes concepts "different"?**
+- ❌ Same layout, different colors = NOT different concepts
+- ❌ Same approach, different fonts = NOT different concepts
+- ✅ Different information architecture = Different concepts
+- ✅ Different interaction models = Different concepts
+- ✅ Different navigation patterns = Different concepts
+- ✅ Different content priorities = Different concepts
 
 ### Fidelity Levels
 Match fidelity to the question being answered:
@@ -41,7 +57,8 @@ Questions to ask user:
 3. Who's the audience for these concepts?
 4. Any brand guidelines or design constraints?
 5. What fidelity level? (wireframes/mockups/high-fi)
-6. Timeline and how many concepts to explore?
+
+**Note**: Default to creating **3 distinct concept variations** unless user explicitly requests a different number. Multiple concepts enable better decision-making and show thorough exploration.
 
 Use `view` to read:
 - Research artifacts (personas, design principles)
@@ -190,8 +207,9 @@ Mood boards should include:
 ## Quality Criteria
 
 ### Excellent Concepts:
+- **Three distinct directions**: Always create 3 concepts unless explicitly told otherwise
 - **Tied to research**: Design decisions directly address user jobs/pain points
-- **Strategically different**: Multiple concepts explore meaningfully different approaches
+- **Strategically different**: Each concept explores a meaningfully different approach (not just color/font variations)
 - **Appropriate fidelity**: Level of detail matches the questions being answered
 - **Annotated**: Key decisions are explained, not just shown
 - **Realistic**: Use real or realistic content, not Lorem Ipsum
@@ -296,9 +314,9 @@ Mood boards should include:
 **Problem**: Creating concepts without reviewing research or existing materials
 **Instead**: Start every concept by reviewing personas, design principles, and competitive analysis
 
-### ❌ Too Many Options
-**Problem**: Presenting 5+ concepts that overwhelm stakeholders
-**Instead**: Show 2-3 meaningfully different directions with clear tradeoffs
+### ❌ Too Many Options (or Too Few)
+**Problem**: Presenting 5+ concepts that overwhelm stakeholders, OR presenting only 1 concept that feels like "approve or reject"
+**Instead**: Default to 3 meaningfully different directions with clear tradeoffs - this is the sweet spot for decision-making
 
 ### ❌ Premature Pixel-Perfect Polish
 **Problem**: Spending hours on shadows/gradients before validating the approach
@@ -309,8 +327,18 @@ Mood boards should include:
 **Instead**: Use realistic content that exposes real layout and hierarchy challenges
 
 ### ❌ Concepts That Look Identical
-**Problem**: Three concepts that only differ in color or button shape
-**Instead**: Explore genuinely different approaches to the design problem
+**Problem**: Three concepts that only differ in color or button shape (superficial variations)
+**Instead**: Explore genuinely different strategic approaches:
+- Different information architecture (what's shown where)
+- Different navigation models (tabs vs. sidebar vs. bottom sheet)
+- Different interaction patterns (single-page vs. multi-step)
+- Different content priorities (what's emphasized)
+- Different user flows (linear vs. flexible)
+
+Example: For a checkout flow, don't show "same 3-step flow with different button colors" - instead show:
+1. Single-page express checkout
+2. Progressive disclosure wizard
+3. Inline cart checkout overlay
 
 ### ❌ Missing the "Why"
 **Problem**: Beautiful designs with no explanation of decisions
@@ -415,6 +443,12 @@ When presenting concepts, structure like this:
 **Tradeoffs**: [What this sacrifices]
 [Link to prototype/mockup]
 
+## Concept 3: [Descriptive Name]
+**Approach**: [High-level strategy]
+**Strengths**: [What this does well]
+**Tradeoffs**: [What this sacrifices]
+[Link to prototype/mockup]
+
 ## Recommendation
 [If asked: Which concept to pursue and why]
 
@@ -428,7 +462,8 @@ When presenting concepts, structure like this:
 
 Before delivering concept artifacts, verify:
 - [ ] Reviewed research insights and design principles
-- [ ] Created 2-3 meaningfully different concepts
+- [ ] **Created 3 meaningfully different concepts** (not just visual variations of the same approach)
+- [ ] Each concept explores a different strategic direction or interaction model
 - [ ] Used realistic content, not Lorem Ipsum
 - [ ] Annotated key design decisions with rationale
 - [ ] Checked responsive behavior for mobile/tablet
