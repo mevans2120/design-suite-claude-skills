@@ -4,6 +4,7 @@ outputs/*
 
 # Claude memory (auto-generated session data)
 .claude-memory/
+memory-bank/
 
 # Node modules
 node_modules/
