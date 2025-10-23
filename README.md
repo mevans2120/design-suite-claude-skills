@@ -13,6 +13,9 @@ End-to-end digital product design workflow: research → concepts → production
 git clone https://github.com/mevans2120/design-suite-claude-skills.git
 cd design-suite-claude-skills
 ./install.sh
+
+# Verify installation
+./verify-skills.sh
 ```
 
 Installs globally to `~/.claude/skills/` - See [INSTALL.md](INSTALL.md) for details.

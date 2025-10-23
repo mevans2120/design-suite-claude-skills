@@ -44,6 +44,13 @@ This creates symlinks in `~/.claude/skills/`:
 ls -la ~/.claude/skills/design-*
 ```
 
+**Health check (recommended):**
+```bash
+./verify-skills.sh
+```
+
+This checks that all symlinks are working correctly and points to the right locations.
+
 #### Option 2: Project-Only Installation
 
 Skills are already configured in this project's `.claude/skills/` directory as symlinks. Just clone and use:
@@ -205,6 +212,33 @@ ls -la ~/.claude/skills/
 ```bash
 ./install.sh
 ```
+
+### Broken Symlinks
+
+**Symptoms of broken symlinks:**
+- Skills work in some projects but not others
+- "Skill not found" errors in Claude Code
+- `ls -la ~/.claude/skills/design-*` shows red text or "No such file or directory"
+- Symlink points to a location that doesn't exist
+
+**How to detect broken symlinks:**
+```bash
+./verify-skills.sh
+```
+
+**What breaks symlinks:**
+- Moving the design-suite-claude-skills repo to a different location
+- Deleting the repo
+- Renaming the repo directory
+- Changing your home directory path
+
+**How to fix:**
+```bash
+cd /path/to/design-suite-claude-skills
+./install.sh
+```
+
+This will recreate all symlinks to point to the current repo location.
 
 ### Permission Denied
 
