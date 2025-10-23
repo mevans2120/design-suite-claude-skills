@@ -15,9 +15,16 @@ This suite contains four specialized skills that cover the complete design lifec
 
 ### Installation
 
-1. Upload each skill folder to your Claude environment or Claude Code
-2. Skills will automatically activate when relevant to your task
-3. You can explicitly invoke skills by mentioning them in your request
+**Simple one-command install:**
+```bash
+git clone https://github.com/mevans2120/design-suite-claude-skills.git
+cd design-suite-claude-skills
+./install.sh
+```
+
+This installs all 4 skills globally to `~/.claude/skills/`
+
+**See [INSTALL.md](INSTALL.md) for detailed installation options and troubleshooting.**
 
 ### Basic Usage Examples
 
