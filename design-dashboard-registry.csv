@@ -1,0 +1,35 @@
+id,number,name,code,description,category,phase,priority,status,dependencies,blocks,value,startDate,completedDate,notes,tags
+PROJECT_META,,Design Dashboard,DD,A centralized dashboard for tracking design projects through all phases (Research → Concepts → Production → QA) with inline visual review capabilities,,,,,,,,,,Vite + Lit Web Components,design;dashboard
+DD-1,1,Projects List View,,Main view showing all design projects in a responsive grid,Page,Phase 1,high,planned,,,Fast project scanning,,,Route: / or /projects,page;list
+DD-2,2,Project Detail View,,Deep view into a single project with context and deliverables,Page,Phase 1,high,planned,DD-1,,Complete project context,,,Route: /project/:id,page;detail
+DD-3,3,Sidebar Navigation,,Fixed 240px sidebar with project counts and phase filters,Navigation,Phase 1,high,planned,,,Quick access navigation,,,Includes logo and nav sections,navigation;sidebar
+DD-4,4,Project Card Component,,Clickable card displaying project summary with status badge,UI Component,Phase 2,high,planned,,,Visual project overview,,,Shows title/description/metadata/status,component;card
+DD-5,5,Deliverable Card Component,,Card displaying design deliverable with visual preview,UI Component,Phase 2,high,planned,,,Visual-first deliverable display,,,Supports images/color palettes/placeholders,component;card;visual
+DD-6,6,Context Section Component,,Collapsible section for design principles and insights,UI Component,Phase 2,high,planned,,,Progressive disclosure of context,,,Progressive disclosure pattern,component;collapsible
+DD-7,7,Button Component,,Reusable button with primary and secondary variants,UI Component,Phase 2,high,planned,,,Consistent interaction patterns,,,Includes all interaction states,component;button
+DD-8,8,Tab Navigation,,Tabbed interface for Overview/All Deliverables/Activity,Navigation,Phase 2,high,planned,,,Content organization,,,Horizontal tabs with active state,navigation;tabs
+DD-9,9,Design Principles Display,,Grid of principle cards with title and description,Content,Phase 1,high,planned,,,Context before details,,,Auto-grid layout 300px min-width,content;principles
+DD-10,10,Key Insights Display,,Numbered list of research insights,Content,Phase 1,high,planned,,,Research visibility,,,Numbered badge indicators,content;insights
+DD-11,11,Status Badges,,Phase-based color-coded status indicators,UI Component,Phase 2,high,planned,,,Status transparency,,,4 phases: Research/Concepts/Production/QA,component;badge;status
+DD-12,12,Visual Preview System,,Inline previews for color palettes and images,UI Component,Phase 2,high,planned,,,Visual content is critical,,,240px height with object-fit cover,component;visual;preview
+DD-13,13,Phase Filters,,Filter projects by workflow phase,Action,Phase 1,medium,planned,DD-3,,Workflow-based filtering,,,Sidebar navigation feature,action;filter
+DD-14,14,Progressive Disclosure,,Show 3 items initially with expand button,Interaction,Phase 2,medium,planned,DD-6,,Summaries with easy depth,,,Collapsible sections with Show All,interaction;ux
+DD-15,15,Project Header,,Project detail page header with status and description,UI Component,Phase 2,medium,planned,DD-2,,Clear project identification,,,40px title 18px description,component;header
+DD-16,16,Metadata Display,,Shows deliverable count and last updated date,UI Component,Phase 2,medium,planned,,,Timestamp tracking,,,Small text 13px color #6b7280,component;metadata
+DD-17,17,Responsive Layout,,Mobile/tablet/desktop breakpoints,Layout,Phase 3,high,planned,,,Multi-device support,,,320px/768px/1024px breakpoints,layout;responsive
+DD-18,18,Mobile Sidebar,,Overlay sidebar with hamburger menu for mobile,UI Component,Phase 3,medium,planned,DD-3;DD-17,,Mobile navigation,,,Backdrop blur when open,component;mobile;sidebar
+DD-19,19,Hover States,,Card lift and border color change on hover,Interaction,Phase 4,medium,planned,,,Visual feedback,,,translateY(-2px) with shadow,interaction;animation
+DD-20,20,Focus States,,Keyboard focus indicators for accessibility,Interaction,Phase 4,high,planned,,,Accessibility compliance,,,2px blue outline WCAG compliant,interaction;accessibility
+DD-21,21,Loading States,,Skeleton placeholders with shimmer animation,UI Component,Phase 3,medium,planned,,,Loading experience,,,Prevents layout shift,component;loading
+DD-22,22,Empty States,,Messaging for no projects or deliverables,UI Component,Phase 3,medium,planned,,,Graceful empty states,,,Centered with icon,component;empty
+DD-23,23,Error States,,Error messaging for failed data loads,UI Component,Phase 3,medium,planned,,,Error handling,,,With retry button,component;error
+DD-24,24,Page Transitions,,Fade in animation for route changes,Interaction,Phase 4,low,planned,,,Smooth navigation,,,300ms ease-out,interaction;animation;transition
+DD-25,25,Skill Badges,,Badges indicating which design skill created deliverable,UI Component,Phase 2,medium,planned,DD-11,,Skill tracking,,,Research/Concepts/Production/QA colors,component;badge
+DD-26,26,View File Action,,Button to open deliverable file,Action,Phase 2,high,planned,DD-7,,File access,,,Primary button View File arrow,action;button
+DD-27,27,Expand/Collapse Animation,,Smooth height transition for collapsible sections,Interaction,Phase 4,medium,planned,DD-14,,Smooth interactions,,,300ms ease height transition,interaction;animation
+DD-28,28,Back Navigation,,Return to projects list from detail view,Action,Phase 1,high,planned,DD-3,,Easy navigation,,,Sidebar back link,action;navigation
+DD-29,29,Jump to Phase Navigation,,Quick links to deliverable phases in project,Navigation,Phase 2,medium,planned,DD-2,,Quick phase access,,,Shows deliverable count per phase,navigation;jump
+DD-30,30,Footer Links,,PM and Engineering dashboard links,Navigation,Phase 1,low,planned,,,External context,,,Footer only not prominent,navigation;footer
+DD-31,31,Keyboard Navigation,,Full keyboard support with tab order,Interaction,Phase 4,high,planned,DD-20,,Accessibility compliance,,,WCAG AA requirement,interaction;accessibility;keyboard
+DD-32,32,Screen Reader Support,,ARIA labels and semantic HTML,Interaction,Phase 4,high,planned,DD-20,,Accessibility compliance,,,WCAG AA requirement,interaction;accessibility;aria
+DD-33,33,Reduced Motion Support,,Respects prefers-reduced-motion preference,Interaction,Phase 4,high,planned,,,Accessibility compliance,,,Accessibility requirement,interaction;accessibility;motion
