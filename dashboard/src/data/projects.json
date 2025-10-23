@@ -123,6 +123,19 @@
           }
         },
         {
+          "id": "deliv-007b",
+          "type": "wireframe",
+          "skill": "design-concepts",
+          "title": "File Viewer Modal Wireframe",
+          "summary": "Interactive wireframe showing inline file viewing modal. When users click 'View File' on a deliverable, content opens in an overlay modal with navigation, keyboard shortcuts, and close actions - keeping users in context instead of navigating away.",
+          "filePath": "/outputs/design-dashboard/concepts/wireframe-file-viewer.html",
+          "createdDate": "2025-10-22",
+          "visible": true,
+          "visualAssets": {
+            "preview": "Interactive modal with file content display"
+          }
+        },
+        {
           "id": "deliv-008",
           "type": "design-tokens",
           "skill": "design-production",
