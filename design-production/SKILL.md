@@ -402,6 +402,35 @@ const [data, setData] = useState(null);
 
 ## Deliverable Formats
 
+### File Organization
+
+**IMPORTANT: Organize all deliverables by batch in dated folders.**
+
+Each batch of production design work should be saved in its own folder:
+`docs/design/production-batch-{number}-{MMDDYY}/`
+
+**Examples:**
+- First production batch on Oct 24, 2025: `docs/design/production-batch-1-102425/`
+- Second production batch (updates): `docs/design/production-batch-2-110525/`
+
+**Rationale:**
+- **Version history**: Tracks design iterations and handoff versions
+- **Prevents confusion**: Clear which specs correspond to which build
+- **Organized**: All production files for one batch stay together
+
+**Batch folder structure:**
+```
+docs/design/production-batch-1-102425/
+├── design-specification.md
+├── component-implementation-guide.md
+├── design-tokens.js
+├── design-system.md
+├── prototype-production.jsx
+└── animations/
+    ├── loading-spinner.json
+    └── success-checkmark.json
+```
+
 ### Figma Files
 **Created via**: Figma API (if access provided)
 **Structure**:
@@ -409,10 +438,12 @@ const [data, setData] = useState(null);
 - Page 2: Screens (grouped by flow)
 - Page 3: Developer specs & annotations
 **Naming**: component-name, screen-name (kebab-case)
+**Note**: Link to Figma file in design specification document
 
 ### High-Fidelity Prototypes
-**File**: `/mnt/user-data/outputs/prototype-production.jsx`
-**Format**: React with full design system
+**Location**: `docs/design/production-batch-{number}-{MMDDYY}/`
+**File**: `prototype-production.jsx` or `.html`
+**Format**: React with full design system (or HTML/CSS)
 **Include**:
 - All screens in primary flow
 - All component states
@@ -421,7 +452,8 @@ const [data, setData] = useState(null);
 - Component library
 
 ### Design Specifications
-**File**: `/mnt/user-data/outputs/design-spec.md`
+**Location**: `docs/design/production-batch-{number}-{MMDDYY}/`
+**File**: `design-specification.md`
 **Format**: Markdown with embedded images
 **Include**:
 - Layout specifications
@@ -432,13 +464,15 @@ const [data, setData] = useState(null);
 - Asset list
 
 ### Animation Files
-**File**: `/mnt/user-data/outputs/animation-[name].json`
+**Location**: `docs/design/production-batch-{number}-{MMDDYY}/animations/`
+**File**: `{animation-name}.json`
 **Format**: Lottie JSON
 **Use cases**: Loading indicators, success confirmations, illustrations
 **Tools**: Export from After Effects or create programmatically
 
 ### Design System Documentation
-**File**: `/mnt/user-data/outputs/design-system.md`
+**Location**: `docs/design/production-batch-{number}-{MMDDYY}/`
+**File**: `design-system.md`
 **Format**: Markdown with code examples
 **Include**:
 - Design tokens

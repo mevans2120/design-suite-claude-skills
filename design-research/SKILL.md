@@ -152,28 +152,59 @@ For planning user research studies:
 
 ## Deliverable Formats
 
+### File Organization
+
+**IMPORTANT: Organize all deliverables by batch in dated folders.**
+
+Each batch of research work should be saved in its own folder:
+`docs/design/research-batch-{number}-{MMDDYY}/`
+
+**Examples:**
+- First research batch on Oct 24, 2025: `docs/design/research-batch-1-102425/`
+- Second research batch (new study): `docs/design/research-batch-2-110125/`
+
+**Rationale:**
+- **Version history**: Keeps track of research iterations over time
+- **Prevents confusion**: Clear which findings are from which study
+- **Organized**: Related research artifacts stay together
+
+**Batch folder structure:**
+```
+docs/design/research-batch-1-102425/
+├── personas.md
+├── customer-segments.md
+├── design-principles.md
+├── design-roadmap.md
+└── research-discussion-guide.md
+```
+
 ### Personas
-**File**: `/mnt/user-data/outputs/personas.md`
+**Location**: `docs/design/research-batch-{number}-{MMDDYY}/`
+**File**: `personas.md`
 **Format**: Markdown with clear sections for each persona
 **Include**: Photo/avatar, quote, jobs-to-be-done, pain points, goals, context
 
-### Customer Segments  
-**File**: `/mnt/user-data/outputs/customer-segments.md`
+### Customer Segments
+**Location**: `docs/design/research-batch-{number}-{MMDDYY}/`
+**File**: `customer-segments.md`
 **Format**: Markdown table + detailed descriptions
 **Include**: Segment name, size, primary jobs, characteristics, design implications
 
 ### Design Principles
-**File**: `/mnt/user-data/outputs/design-principles.md`
+**Location**: `docs/design/research-batch-{number}-{MMDDYY}/`
+**File**: `design-principles.md`
 **Format**: Markdown with principle + insight + example
 **Include**: 3-7 principles, each with rationale from research
 
 ### Design Roadmap
-**File**: `/mnt/user-data/outputs/design-roadmap.md`
+**Location**: `docs/design/research-batch-{number}-{MMDDYY}/`
+**File**: `design-roadmap.md`
 **Format**: Markdown with timeline visualization
 **Include**: Prioritized initiatives, rationale, timeline, success metrics
 
 ### Research Discussion Guide
-**File**: `/mnt/user-data/outputs/research-discussion-guide.md`
+**Location**: `docs/design/research-batch-{number}-{MMDDYY}/`
+**File**: `research-discussion-guide.md`
 **Format**: Markdown with timing and question flow
 **Include**: Sections for intro, context, deep dive, closing
 

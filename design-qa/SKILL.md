@@ -235,8 +235,37 @@ Example: "Button padding is 8px instead of specified 12px"
 
 ## Deliverable Formats
 
+### File Organization
+
+**IMPORTANT: Organize all deliverables by batch in dated folders.**
+
+Each batch of QA review work should be saved in its own folder:
+`docs/design/qa-batch-{number}-{MMDDYY}/`
+
+**Examples:**
+- First QA review on Oct 24, 2025: `docs/design/qa-batch-1-102425/`
+- Second QA review (post-fixes): `docs/design/qa-batch-2-110125/`
+
+**Rationale:**
+- **Version history**: Tracks QA findings across multiple review cycles
+- **Prevents confusion**: Clear which issues correspond to which build
+- **Organized**: All QA artifacts for one review cycle stay together
+
+**Batch folder structure:**
+```
+docs/design/qa-batch-1-102425/
+├── design-qa-report.md
+├── design-qa-issues.csv
+├── spec-improvements.md
+└── screenshots/
+    ├── issue-001-button-spacing.png
+    ├── issue-002-color-contrast.png
+    └── expected-vs-actual-comparison.png
+```
+
 ### Design QA Report
-**File**: `/mnt/user-data/outputs/design-qa-report.md`
+**Location**: `docs/design/qa-batch-{number}-{MMDDYY}/`
+**File**: `design-qa-report.md`
 **Format**: Markdown with embedded screenshots
 **Structure**:
 ```markdown
@@ -291,7 +320,8 @@ Example: "Button padding is 8px instead of specified 12px"
 ```
 
 ### Issue Tracking Spreadsheet
-**File**: `/mnt/user-data/outputs/design-qa-issues.csv`
+**Location**: `docs/design/qa-batch-{number}-{MMDDYY}/`
+**File**: `design-qa-issues.csv`
 **Format**: CSV for import to project management tools
 **Columns**:
 - Issue ID
@@ -306,7 +336,8 @@ Example: "Button padding is 8px instead of specified 12px"
 - Date Fixed
 
 ### Design Specification Feedback
-**File**: `/mnt/user-data/outputs/spec-improvements.md`
+**Location**: `docs/design/qa-batch-{number}-{MMDDYY}/`
+**File**: `spec-improvements.md`
 **Format**: Markdown with specific suggestions
 **Purpose**: Help improve design documentation for future projects
 

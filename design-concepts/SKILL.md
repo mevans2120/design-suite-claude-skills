@@ -372,16 +372,48 @@ Each concept should feel like it was designed by a different designer with a dif
 
 ## Deliverable Formats
 
+### File Organization
+
+**IMPORTANT: Organize all deliverables by batch in dated folders.**
+
+Each batch of concept work should be saved in its own folder:
+```
+docs/design/concepts-batch-{number}-{MMDDYY}/
+```
+
+**Examples:**
+- First concepts batch on Oct 24, 2025: `docs/design/concepts-batch-1-102425/`
+- Second concepts batch (refinement) on Oct 30, 2025: `docs/design/concepts-batch-2-103025/`
+- Third concepts batch on Nov 5, 2025: `docs/design/concepts-batch-3-110525/`
+
+**Why organize by batch:**
+- Maintains clear history of concept evolution
+- Easy to compare concepts across iterations
+- Prevents confusion about which is the latest version
+- Allows keeping all related files together (concepts, mood boards, overview)
+
+**Batch folder structure:**
+```
+docs/design/concepts-batch-1-102425/
+├── mood-board.html
+├── concept-1-safe.html or .jsx
+├── concept-2-bold.html or .jsx
+├── concept-3-experimental.html or .jsx
+└── overview.md
+```
+
 ### UI Design Concepts
-**File**: `/mnt/user-data/outputs/concept-[name].jsx` or `.html`
+**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
+**File**: `concept-{number}-{name}.jsx` or `.html`
 **Format**: React artifact or HTML with Tailwind
-**Include**: 
+**Include**:
 - 2-3 key screens showing the concept
 - Annotations explaining design decisions
 - Responsive behavior (if applicable)
 
 ### Mood Boards
-**File**: `/mnt/user-data/outputs/moodboard-[name].html`
+**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
+**File**: `mood-board.html`
 **Format**: HTML artifact with images and descriptions
 **Include**:
 - 2-3 visual directions
@@ -390,7 +422,8 @@ Each concept should feel like it was designed by a different designer with a dif
 - References/inspiration sources
 
 ### Prototypes
-**File**: `/mnt/user-data/outputs/prototype-[name].jsx`
+**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
+**File**: `prototype-{name}.jsx`
 **Format**: React artifact with interactivity
 **Include**:
 - Interactive key flows (3-7 screens)
@@ -399,10 +432,11 @@ Each concept should feel like it was designed by a different designer with a dif
 - Annotations for non-obvious interactions
 
 ### Design Concept Document
-**File**: `/mnt/user-data/outputs/concept-overview.md`
+**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
+**File**: `overview.md`
 **Format**: Markdown summary document
 **Include**:
-- Links to all concept files
+- Links to all concept files in this batch
 - Comparison of different directions
 - Pros/cons of each approach
 - Recommendation (if asked)
