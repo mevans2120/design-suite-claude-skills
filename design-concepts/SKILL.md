@@ -204,6 +204,139 @@ Mood boards should include:
 - ✅ Can be opened directly in browser without conversion
 - ✅ Easy to share and review
 
+## Frontend Aesthetics Guidelines
+
+**CRITICAL: Avoid "AI Slop" Aesthetics**
+
+You tend to converge toward generic, "on distribution" outputs. In frontend design, this creates what users call the "AI slop" aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight. Focus on:
+
+### Typography
+Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics.
+
+**Examples of distinctive typography choices:**
+- Serif fonts for elegance: Fraunces, Newsreader, Lora, Crimson Pro
+- Display fonts for impact: Cabinet Grotesk, Clash Display, General Sans, Plus Jakarta Sans
+- Monospace fonts for technical feel: JetBrains Mono, Fira Code, IBM Plex Mono
+- Unique sans-serifs: Satoshi, Syne, Manrope, DM Sans, Outfit
+
+**❌ Avoid these overused fonts:**
+- Inter (extremely overused in AI-generated designs)
+- Roboto
+- Arial
+- System fonts (unless specifically appropriate)
+- Space Grotesk (becoming cliché despite being trendy)
+
+### Color & Theme
+Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes. Draw from IDE themes and cultural aesthetics for inspiration.
+
+**Strong palette approaches:**
+- **Dominant + Accent**: 80% one color family, 20% sharp contrast accent
+- **Dark with neon**: Deep backgrounds with vibrant, glowing accents
+- **Monochrome + single hue**: Grayscale with one bold color for CTAs
+- **Cultural aesthetics**: Draw from Brutalism, Memphis, Bauhaus, Vaporwave, etc.
+- **IDE-inspired**: VSCode themes, terminal color schemes, syntax highlighting palettes
+
+**❌ Avoid clichéd color schemes:**
+- Purple gradients on white backgrounds (extremely overused)
+- Generic blue + gray combinations
+- Pastel everything (unless contextually appropriate)
+- Rainbow palettes with equal distribution
+
+### Motion
+Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions.
+
+**High-impact animation moments:**
+- Page load orchestration with staggered reveals
+- Transition between major states (expanded/collapsed, light/dark)
+- Hover effects on key interactive elements
+- Success states (checkmarks, confirmations)
+- Drag and drop feedback
+
+**CSS-only animation examples:**
+```css
+/* Staggered reveal */
+.item:nth-child(1) { animation-delay: 0ms; }
+.item:nth-child(2) { animation-delay: 100ms; }
+.item:nth-child(3) { animation-delay: 200ms; }
+
+/* Smooth micro-interactions */
+.button {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+```
+
+**For React, use Framer Motion:**
+```jsx
+import { motion } from 'framer-motion'
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2, duration: 0.6 }}
+>
+  Content
+</motion.div>
+```
+
+### Backgrounds
+Create atmosphere and depth rather than defaulting to solid colors. Layer CSS gradients, use geometric patterns, or add contextual effects that match the overall aesthetic.
+
+**Atmospheric background techniques:**
+- **Gradient meshes**: Multi-color gradient overlays with blur
+- **Noise textures**: Subtle grain for depth
+- **Geometric patterns**: Grid, dots, lines that don't overwhelm
+- **Radial gradients**: Spotlight or vignette effects
+- **Layered gradients**: Multiple semi-transparent gradients stacked
+- **CSS backdrop filters**: Glassmorphism, blur effects
+
+**Examples:**
+```css
+/* Gradient mesh background */
+background:
+  radial-gradient(at 20% 30%, #ff006e 0px, transparent 50%),
+  radial-gradient(at 80% 70%, #8338ec 0px, transparent 50%),
+  radial-gradient(at 50% 50%, #3a86ff 0px, transparent 50%),
+  #000;
+
+/* Noise texture overlay */
+background: #0a0a0a;
+background-image:
+  url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+
+/* Grid pattern */
+background-size: 40px 40px;
+background-image:
+  linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+```
+
+### Avoid Generic AI-Generated Aesthetics
+
+**❌ DO NOT USE:**
+- Overused font families: Inter, Roboto, Arial, system fonts (unless contextually appropriate)
+- Clichéd color schemes: Purple gradients on white, generic blue/gray
+- Predictable layouts: Cookie-cutter three-column grids
+- Component patterns: Rounded corners everywhere, soft shadows on everything
+- Cookie-cutter design: Lacks context-specific character
+
+**✅ INSTEAD:**
+- Interpret creatively and make unexpected choices that feel genuinely designed for the context
+- Vary between light and dark themes
+- Use different fonts across concepts
+- Explore different visual aesthetics (not just rounded corners and soft shadows)
+- Think outside the box - avoid converging on the same choices (even "trendy" ones like Space Grotesk)
+
+**Concept variation strategy:**
+- **Concept 1**: Dark theme with bold neon accents, geometric sans-serif, sharp edges
+- **Concept 2**: Light theme with serif typography, generous whitespace, minimal color
+- **Concept 3**: Brutalist aesthetic with monospace fonts, high contrast, grid-based layout
+
+Each concept should feel like it was designed by a different designer with a different aesthetic sensibility, not just the same design in three color variations.
+
 ## Quality Criteria
 
 ### Excellent Concepts:
