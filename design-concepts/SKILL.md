@@ -20,16 +20,21 @@ Concept design is NOT final design - it's exploration and communication:
 1. **Brief Review**: Understand goals, constraints, research insights
 2. **Inspiration & Research**: Gather visual references, identify trends
 3. **Ideation**: Sketch multiple directions (divergent thinking)
-4. **Refinement**: **ALWAYS develop 3 distinct concepts** (convergent thinking) unless explicitly told otherwise
+4. **Initial Concepts**: **ALWAYS develop 3 distinct concepts** for initial exploration (convergent thinking) unless explicitly told otherwise
 5. **Presentation**: Create artifacts that tell the story and invite feedback
+6. **Refinement** (if needed): Iterate on the chosen direction - refining ONE concept based on feedback
 
-### Why Multiple Concepts?
-Creating 3 concept variations is standard design practice:
+### Why Multiple Concepts? (For Initial Exploration)
+Creating 3 concept variations is standard design practice **when initially exploring a product or feature**:
 - **Divergent exploration**: Shows different strategic approaches, not just visual variations
 - **Better decisions**: Stakeholders choose between meaningful alternatives, not yes/no
 - **Reduced bias**: Presenting one concept feels like "approve this" vs. "which solves the problem best?"
 - **Safety in numbers**: If one direction has fatal flaw, you have alternatives ready
 - **Creative confidence**: Multiple directions show thorough exploration
+
+**When to create 3 concepts vs. 1:**
+- ✅ **3 concepts**: First time designing a product/feature, exploring strategic direction, major redesigns
+- ✅ **1 concept**: Refining a chosen direction, iterating based on feedback, minor updates to existing designs
 
 **What makes concepts "different"?**
 - ❌ Same layout, different colors = NOT different concepts
@@ -57,8 +62,9 @@ Questions to ask user:
 3. Who's the audience for these concepts?
 4. Any brand guidelines or design constraints?
 5. What fidelity level? (wireframes/mockups/high-fi)
+6. Is this initial exploration or refining an existing concept?
 
-**Note**: Default to creating **3 distinct concept variations** unless user explicitly requests a different number. Multiple concepts enable better decision-making and show thorough exploration.
+**Note**: For **initial concept development** (first time exploring a product/feature), default to creating **3 distinct concept variations** unless user explicitly requests a different number. For **refinement** (iterating on chosen direction), create 1 refined version based on feedback.
 
 Use `view` to read:
 - Research artifacts (personas, design principles)
@@ -340,9 +346,10 @@ Each concept should feel like it was designed by a different designer with a dif
 ## Quality Criteria
 
 ### Excellent Concepts:
-- **Three distinct directions**: Always create 3 concepts unless explicitly told otherwise
+- **Three distinct directions** (for initial exploration): Create 3 concepts when initially exploring a product/feature unless explicitly told otherwise
+- **One refined direction** (for refinement): When refining, focus on iterating one chosen concept based on feedback
 - **Tied to research**: Design decisions directly address user jobs/pain points
-- **Strategically different**: Each concept explores a meaningfully different approach (not just color/font variations)
+- **Strategically different**: Each initial concept explores a meaningfully different approach (not just color/font variations)
 - **Appropriate fidelity**: Level of detail matches the questions being answered
 - **Annotated**: Key decisions are explained, not just shown
 - **Realistic**: Use real or realistic content, not Lorem Ipsum
@@ -448,8 +455,10 @@ Each concept should feel like it was designed by a different designer with a dif
 **Instead**: Start every concept by reviewing personas, design principles, and competitive analysis
 
 ### ❌ Too Many Options (or Too Few)
-**Problem**: Presenting 5+ concepts that overwhelm stakeholders, OR presenting only 1 concept that feels like "approve or reject"
-**Instead**: Default to 3 meaningfully different directions with clear tradeoffs - this is the sweet spot for decision-making
+**Problem**: Presenting 5+ concepts that overwhelm stakeholders, OR presenting only 1 concept during initial exploration that feels like "approve or reject"
+**Instead**:
+- **Initial exploration**: Default to 3 meaningfully different directions with clear tradeoffs - this is the sweet spot for decision-making
+- **Refinement**: Focus on 1 concept, iterating the chosen direction based on feedback
 
 ### ❌ Premature Pixel-Perfect Polish
 **Problem**: Spending hours on shadows/gradients before validating the approach
@@ -595,8 +604,9 @@ When presenting concepts, structure like this:
 
 Before delivering concept artifacts, verify:
 - [ ] Reviewed research insights and design principles
-- [ ] **Created 3 meaningfully different concepts** (not just visual variations of the same approach)
-- [ ] Each concept explores a different strategic direction or interaction model
+- [ ] **For initial exploration**: Created 3 meaningfully different concepts (not just visual variations of the same approach)
+- [ ] **For refinement**: Focused on iterating 1 chosen concept based on feedback
+- [ ] Each initial concept explores a different strategic direction or interaction model
 - [ ] Used realistic content, not Lorem Ipsum
 - [ ] Annotated key design decisions with rationale
 - [ ] Checked responsive behavior for mobile/tablet
