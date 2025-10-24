@@ -331,11 +331,11 @@ background-image:
 - Think outside the box - avoid converging on the same choices (even "trendy" ones like Space Grotesk)
 
 **Concept variation strategy:**
-- **Concept 1**: Dark theme with bold neon accents, geometric sans-serif, sharp edges
-- **Concept 2**: Light theme with serif typography, generous whitespace, minimal color
-- **Concept 3**: Brutalist aesthetic with monospace fonts, high contrast, grid-based layout
+- **Concept 1 (Safe/Refined)**: Polished, professional design that feels familiar but elevated - clean sans-serif (not Inter!), balanced whitespace, subtle color palette, smooth transitions. This is the "stakeholder-friendly" option that's easier to approve.
+- **Concept 2 (Bold/Distinctive)**: Dark theme with bold neon accents, geometric sans-serif, sharp edges, high-contrast. This pushes creativity while staying functional.
+- **Concept 3 (Experimental)**: Brutalist aesthetic with monospace fonts, unconventional layouts, cultural aesthetic influences (Memphis, Bauhaus, etc.). This explores the boundaries.
 
-Each concept should feel like it was designed by a different designer with a different aesthetic sensibility, not just the same design in three color variations.
+Each concept should feel like it was designed by a different designer with a different aesthetic sensibility, not just the same design in three color variations. The "safe" concept should still avoid AI clichés - it should be refined and polished, not generic.
 
 ## Quality Criteria
 
