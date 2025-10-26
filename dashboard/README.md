@@ -1,234 +1,209 @@
-# Design Dashboard - Implementation
+# Design Dashboard - Next.js
 
-A Vite + Lit web components dashboard for tracking design projects through research, concepts, production, and QA phases.
+A centralized dashboard for tracking design projects through research, concepts, production, and QA phases.
 
----
+## Tech Stack
 
-## Project Status
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript 5**
+- **Tailwind CSS 4**
+- **ESLint 9**
 
-**Current Phase**: Implementation (Partial)
-**Framework**: Vite 5.x + Lit 3.x
-**Design Specs**: Complete ✅
-**Implementation**: Foundation Complete ✅
+## Migration Status
 
----
+**Phase 1: Foundation Setup** - COMPLETE
 
-## What's Implemented
+This is the Next.js migration of the original Vite + Lit dashboard, implementing:
 
-### ✅ Foundation
-- [x] Vite project configuration
-- [x] Package.json with dependencies
-- [x] Global CSS with design tokens
-- [x] Main app component with routing
-- [x] Project structure
+- Modern Next.js 14+ App Router architecture
+- Full TypeScript type safety
+- Design tokens migrated to Tailwind configuration
+- Server Components for optimal performance
+- Static export capability for simple deployment
 
-### 🚧 In Progress
-- [ ] Component implementations (see `/outputs/design-dashboard/production/component-implementation-guide.md`)
-- [ ] View implementations
-- [ ] Data loading from projects.json
-
----
-
-## Quick Start
+## Getting Started
 
 ### Install Dependencies
+
 ```bash
-cd dashboard
 npm install
 ```
 
-### Development Server
+### Run Development Server
+
 ```bash
 npm run dev
 ```
-Visit http://localhost:3000
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
----
+This creates a static export in the `out/` directory.
+
+### Preview Production Build
+
+```bash
+npm run start
+# or use any static file server
+npx serve@latest out
+```
 
 ## Project Structure
 
 ```
 dashboard/
-├── index.html                      # Entry point
-├── vite.config.js                  # Vite configuration
-├── package.json                    # Dependencies
-├── src/
-│   ├── main.js                     # App component + routing
-│   ├── styles/
-│   │   └── global.css              # Design tokens as CSS variables
-│   ├── components/                 # Lit components (to implement)
-│   │   ├── sidebar-nav.js
-│   │   ├── project-card.js
-│   │   ├── deliverable-card.js
-│   │   ├── button-component.js
-│   │   └── context-section.js
-│   ├── views/                      # Route views (to implement)
-│   │   ├── projects-list.js
-│   │   └── project-detail.js
+├── app/                        # Next.js App Router
+│   ├── layout.tsx             # Root layout with Inter font
+│   ├── page.tsx               # Projects list (/)
+│   ├── loading.tsx            # Loading state
+│   ├── error.tsx              # Error boundary
+│   └── project/[id]/          # Dynamic project routes
+│       ├── page.tsx           # Project detail page
+│       └── not-found.tsx      # 404 page
+├── components/                 # React components
+│   └── ui/                    # UI component library (future)
+├── lib/                       # Utilities and data
 │   ├── data/
-│   │   └── projects.json           # Project data
-│   └── helpers/
-│       └── update-dashboard.js     # Data helpers
-└── README.md                       # This file
+│   │   └── projects.ts        # Data loading functions
+│   └── utils.ts               # Utility functions
+├── public/                    # Static assets
+│   ├── data/
+│   │   └── projects.json      # Project data
+│   └── deliverables/          # Design files
+│       ├── research/
+│       ├── concepts/
+│       ├── production/
+│       └── qa/
+├── types/                     # TypeScript definitions
+│   └── project.ts             # Project type interfaces
+├── tailwind.config.ts         # Tailwind + design tokens
+├── next.config.js             # Next.js configuration
+└── tsconfig.json              # TypeScript configuration
 ```
-
----
-
-## Design Specifications
-
-All design specifications are complete and available in:
-
-- **Design Tokens**: `/outputs/design-dashboard/production/design-tokens.js`
-- **Design Specification**: `/outputs/design-dashboard/production/design-specification.md`
-- **Component Guide**: `/outputs/design-dashboard/production/component-implementation-guide.md`
-- **Production Summary**: `/outputs/design-dashboard/production/production-summary.md`
-
----
-
-## Next Steps
-
-### 1. Implement Components
-
-Follow the component implementation guide to build:
-
-1. **sidebar-nav.js** - Fixed sidebar navigation
-2. **project-card.js** - Project summary card
-3. **deliverable-card.js** - Deliverable with visual preview
-4. **button-component.js** - Reusable button variants
-5. **context-section.js** - Collapsible principles/insights
-
-Each component has complete code examples in `/outputs/design-dashboard/production/component-implementation-guide.md`.
-
-### 2. Implement Views
-
-Build the two main views:
-
-1. **projects-list.js** - Grid of all projects
-2. **project-detail.js** - Single project detail with deliverables
-
-Code examples provided in component guide.
-
-### 3. Connect Data
-
-- Load `src/data/projects.json`
-- Display real project data
-- Handle loading states
-- Handle errors gracefully
-
-### 4. Polish
-
-- Add animations (see design specification)
-- Test responsive behavior
-- Accessibility audit (keyboard, screen reader)
-- Cross-browser testing
-
----
-
-## Design Principles
-
-The dashboard embodies these principles:
-
-1. **Context Before Details** - Show goals, principles, insights before deliverables
-2. **Summaries with Easy Depth** - Progressive disclosure, depth on demand
-3. **Status Transparency** - Always show project phase and dates
-4. **Design-Focused** - Design artifacts first, PM links in footer
-5. **Design Work is Storytelling** - Chronological deliverables
-
----
 
 ## Design Tokens
 
-All design values are defined in `src/styles/global.css` as CSS custom properties:
+Design tokens from the original dashboard have been migrated to the Tailwind configuration:
 
-```css
-/* Colors */
---color-bg-primary: #0a0a0a;
---color-bg-secondary: #1a1a1a;
---color-brand-primary: #2563eb;
---color-text-primary: #f3f4f6;
+- **Colors**: Background, text, brand, status, and border colors
+- **Typography**: Inter font family with proper font features
+- **Spacing**: 8px-based spacing system (standard Tailwind)
+- **Shadows**: Dark-mode optimized shadow system
+- **Border Radius**: Consistent rounding values
 
-/* Spacing (8px system) */
---spacing-2: 0.5rem;    /* 8px */
---spacing-4: 1rem;      /* 16px */
---spacing-6: 1.5rem;    /* 24px */
+All tokens maintain the dark-mode-first aesthetic of the original design.
 
-/* Transitions */
---transition-normal: 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+## Data Management
+
+### Current Implementation (Phase 1)
+
+Projects are stored in `/public/data/projects.json` and loaded server-side via utility functions in `/lib/data/projects.ts`.
+
+### Adding Projects
+
+Edit `/public/data/projects.json` to add or update projects. Schema:
+
+```typescript
+interface Project {
+  id: string;
+  name: string;
+  description: string;
+  status: 'research' | 'concepts' | 'production' | 'qa' | 'complete';
+  createdDate: string;
+  lastUpdated: string;
+  pmDashboardUrl?: string;
+  designGoals: string[];
+  designPrinciples: DesignPrinciple[];
+  deliverables: Deliverable[];
+  keyInsights: string[];
+}
 ```
 
-Use these tokens in all component styles for consistency.
+### Adding Deliverables
 
----
+1. Place files in `/public/deliverables/[phase]/` directory
+2. Update the project entry in `projects.json`
+3. Add deliverable metadata (title, summary, file path, etc.)
 
-## Tech Stack
+File paths should use the format: `/deliverables/research/filename.md`
 
-- **Framework**: Vite 5.x + Lit 3.x
-- **Language**: JavaScript (ES modules)
-- **Styling**: Shadow DOM + CSS custom properties
-- **Data**: Static JSON (projects.json)
-- **Deployment**: Static site (Netlify, Vercel, GitHub Pages)
+## Deployment
 
----
+This app can be deployed as a static site to:
 
-## Performance Targets
+- **Vercel**: `vercel --prod`
+- **Netlify**: `netlify deploy --prod --dir=out`
+- **GitHub Pages**: See `.github/workflows/deploy.yml` (future)
+- **Any static hosting**: Upload the `out/` directory
 
-From design specification:
+## Development Notes
 
-- First Contentful Paint: < 1.5s
-- Time to Interactive: < 3.0s
-- Lighthouse Score: > 90
-- Bundle Size: < 100KB (gzipped)
+### TypeScript
 
----
+- Strict mode enabled
+- All components and utilities fully typed
+- No `any` types in codebase
+- JSON imports properly typed
 
-## Browser Support
+### Next.js Configuration
 
-- Chrome/Edge: Last 2 versions
-- Firefox: Last 2 versions
-- Safari: Last 2 versions
-- No IE11 support (Lit 3.x requires modern ES6+)
+- Static export enabled (`output: 'export'`)
+- Image optimization disabled (not needed for static export)
+- Trailing slashes enabled for consistent URLs
 
----
+### Styling
 
-## Accessibility
+- Tailwind CSS 4 with dark mode enabled
+- Custom design tokens in `tailwind.config.ts`
+- Global styles in `app/globals.css`
+- Reduced motion support for accessibility
 
-WCAG 2.1 Level AA compliance required:
+## Phase 1 Accomplishments
 
-- Keyboard navigation (tab, arrow keys, escape)
-- Screen reader support (semantic HTML, ARIA labels)
-- Color contrast (4.5:1 for text, 3:1 for UI)
-- Focus indicators visible
-- Reduced motion support
+- ✅ Next.js project initialized with TypeScript and Tailwind
+- ✅ Design tokens migrated from CSS custom properties
+- ✅ File structure established following Next.js best practices
+- ✅ Design deliverables moved to `/public/deliverables/`
+- ✅ TypeScript types defined for all data structures
+- ✅ Data loading utilities created with server-side fetching
+- ✅ Root layout configured with Inter font
+- ✅ Basic routing structure in place (projects list + detail)
+- ✅ Loading and error states implemented
+- ✅ Dev server running successfully
 
----
+## Next Steps (Future Phases)
 
-## Related Documentation
+### Phase 2: Component Migration
+- Migrate Lit components to React
+- Install shadcn/ui component library
+- Implement ProjectCard, DeliverableCard, ContextSection components
+- Add sidebar navigation
+- Match visual design from original dashboard
 
-- Project Brief: `/briefs/design-dashboard-brief.md`
-- Research Phase: `/outputs/design-dashboard/research/`
-- Concepts Phase: `/outputs/design-dashboard/concepts/`
-- Production Phase: `/outputs/design-dashboard/production/`
+### Phase 3: Views and Routing
+- Enhanced projects list view
+- Full project detail view with tabs
+- File viewer modal for deliverables
+- Client/server component optimization
 
----
+### Phase 4: File Management & Polish
+- Markdown rendering for deliverables
+- Mobile responsive design
+- Accessibility improvements
+- Performance optimization
 
-## Questions?
+### Phase 5: Testing & Deployment
+- Comprehensive testing
+- Production deployment
+- Documentation
+- Migration cutover from Vite version
 
-Refer to the comprehensive design specification:
-`/outputs/design-dashboard/production/design-specification.md`
+## License
 
-Includes:
-- Exact component measurements
-- All interactive states
-- Responsive breakpoints
-- Animation specifications
-- Accessibility requirements
-- Developer handoff notes
-
----
-
-**Ready to build!** Follow the component implementation guide and design specification to complete the dashboard.
+ISC

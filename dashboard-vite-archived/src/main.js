@@ -32,7 +32,7 @@ class DesignDashboardApp extends LitElement {
   _renderView() {
     if (this.route.startsWith('/project/')) {
       const projectId = this.route.split('/').pop();
-      return html`<project-detail-view projectId="${projectId}"></project-detail-view>`;
+      return html`<project-detail-view .projectId="${projectId}"></project-detail-view>`;
     }
 
     return html`<projects-list-view></projects-list-view>`;
