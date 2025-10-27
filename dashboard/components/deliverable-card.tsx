@@ -93,7 +93,7 @@ export function DeliverableCard({ deliverable }: DeliverableCardProps) {
     // HTML file preview (highest priority for visual deliverables)
     if (isHtmlFile && deliverable.filePath) {
       return (
-        <div className="w-full h-full relative bg-white overflow-hidden">
+        <div className="w-full h-full relative bg-[#0a0a0a] overflow-hidden">
           <div className="w-full h-full overflow-hidden relative">
             <iframe
               src={deliverable.filePath}
@@ -104,9 +104,9 @@ export function DeliverableCard({ deliverable }: DeliverableCardProps) {
                 transform: 'scale(0.25)',
                 transformOrigin: 'top left',
                 pointerEvents: 'none',
+                colorScheme: 'dark',
               }}
               title={deliverable.title}
-              sandbox="allow-same-origin allow-scripts"
             />
           </div>
           <div className="absolute top-2 right-2 bg-black/60 text-white px-2 py-1 rounded text-[10px] uppercase tracking-wide font-semibold">

@@ -25,7 +25,10 @@ const MAX_PREVIEW_LENGTH = 300;
  */
 export function extractPrioritySection(markdown: string): ExtractedSection | null {
   // Remove YAML frontmatter if present
-  const withoutFrontmatter = markdown.replace(/^---[\s\S]*?---\n/, '');
+  let withoutFrontmatter = markdown.replace(/^---[\s\S]*?---\n/, '');
+
+  // Remove code blocks (``` fenced code) to avoid extracting code as content
+  withoutFrontmatter = withoutFrontmatter.replace(/```[\s\S]*?```/g, '');
 
   for (const sectionRegex of PRIORITY_SECTIONS) {
     const match = withoutFrontmatter.match(sectionRegex);
