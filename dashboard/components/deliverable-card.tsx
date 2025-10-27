@@ -3,6 +3,10 @@
 import { Deliverable } from '@/types/project';
 import { useEffect, useState } from 'react';
 import { formatDate } from '@/lib/utils';
+import { FileViewerModal } from './file-viewer-modal';
+import { extractPrioritySection, ExtractedSection } from '@/lib/markdown-utils';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface DeliverableCardProps {
   deliverable: Deliverable;
@@ -19,20 +23,38 @@ function getSkillBadgeClass(skill: string): string {
 }
 
 export function DeliverableCard({ deliverable }: DeliverableCardProps) {
-  const [textPreview, setTextPreview] = useState<string | null>(null);
+  const [extractedSection, setExtractedSection] = useState<ExtractedSection | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [isHtmlFile, setIsHtmlFile] = useState(false);
 
   useEffect(() => {
-    async function loadTextPreview() {
+    async function loadPreview() {
       const { filePath, visualAssets } = deliverable;
 
-      // Skip if has visual assets or no file path
-      if (visualAssets?.colorPalette || visualAssets?.preview || !filePath) {
+      // No file path means nothing to preview
+      if (!filePath) {
         return;
       }
 
-      // Only load for text/markdown files
-      if (!filePath.match(/\.(md|txt)$/i)) {
+      // Check if it's an HTML file first (highest priority for visual deliverables)
+      if (filePath.match(/\.html$/i)) {
+        setIsHtmlFile(true);
+        return;
+      }
+
+      // Skip markdown extraction if we have an actual image preview path
+      if (visualAssets?.preview && typeof visualAssets.preview === 'string' && visualAssets.preview.startsWith('/')) {
+        return;
+      }
+
+      // Skip markdown extraction if we have a color palette (design tokens)
+      if (visualAssets?.colorPalette && !filePath.match(/\.html$/i)) {
+        return;
+      }
+
+      // Only load for markdown files
+      if (!filePath.match(/\.md$/i)) {
         return;
       }
 
@@ -41,58 +63,71 @@ export function DeliverableCard({ deliverable }: DeliverableCardProps) {
         // Path is already correct for Next.js static files (starts with /deliverables/)
         const response = await fetch(filePath);
         if (!response.ok) {
-          console.log('Failed to fetch preview for:', filePath, response.status);
+          console.error('Failed to fetch preview for:', filePath, response.status);
+          setExtractedSection(null);
           return;
         }
 
         const text = await response.text();
+        console.log('Loaded markdown for:', filePath, 'length:', text.length);
 
-        // Clean markdown content thoroughly
-        const content = text
-          // Remove YAML frontmatter
-          .replace(/^---[\s\S]*?---\n?/gm, '')
-          // Remove markdown headers (# Header)
-          .replace(/^#{1,6}\s+(.+)$/gm, '$1')
-          // Remove markdown bold (**text** or __text__)
-          .replace(/(\*\*|__)(.*?)\1/g, '$2')
-          // Remove markdown italic (*text* or _text_)
-          .replace(/(\*|_)(.*?)\1/g, '$2')
-          // Remove markdown list markers (- item, * item, 1. item)
-          .replace(/^[\s]*[-*+]\s+/gm, '')
-          .replace(/^[\s]*\d+\.\s+/gm, '')
-          // Remove markdown links [text](url)
-          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-          // Remove markdown code blocks
-          .replace(/```[\s\S]*?```/g, '')
-          .replace(/`([^`]+)`/g, '$1')
-          // Remove horizontal rules
-          .replace(/^[\s]*[-*_]{3,}[\s]*$/gm, '')
-          // Remove blockquotes
-          .replace(/^>\s+/gm, '')
-          // Collapse multiple newlines into single newlines
-          .replace(/\n{3,}/g, '\n\n')
-          // Remove extra whitespace
-          .replace(/[ \t]+/g, ' ')
-          .trim();
-
-        // Get first 400 characters of clean text
-        setTextPreview(content.substring(0, 400));
+        // Extract priority section using new utility
+        const section = extractPrioritySection(text);
+        console.log('Extracted section for', filePath, ':', section);
+        setExtractedSection(section);
       } catch (error) {
         // Silently fail - will show placeholder
-        console.log('Failed to load preview for:', filePath, error);
-        setTextPreview(null);
+        console.error('Failed to load preview for:', filePath, error);
+        setExtractedSection(null);
       } finally {
         setIsLoading(false);
       }
     }
 
-    loadTextPreview();
+    loadPreview();
   }, [deliverable]);
 
   const renderVisual = () => {
     const { visualAssets } = deliverable;
 
-    // Color palette preview
+    // HTML file preview (highest priority for visual deliverables)
+    if (isHtmlFile && deliverable.filePath) {
+      return (
+        <div className="w-full h-full relative bg-white overflow-hidden">
+          <div className="w-full h-full overflow-hidden relative">
+            <iframe
+              src={deliverable.filePath}
+              className="border-0 absolute top-0 left-0"
+              style={{
+                width: '400%',
+                height: '400%',
+                transform: 'scale(0.25)',
+                transformOrigin: 'top left',
+                pointerEvents: 'none',
+              }}
+              title={deliverable.title}
+              sandbox="allow-same-origin allow-scripts"
+            />
+          </div>
+          <div className="absolute top-2 right-2 bg-black/60 text-white px-2 py-1 rounded text-[10px] uppercase tracking-wide font-semibold">
+            HTML Preview
+          </div>
+        </div>
+      );
+    }
+
+    // Image preview (actual image file paths)
+    if (visualAssets?.preview && typeof visualAssets.preview === 'string' && visualAssets.preview.startsWith('/')) {
+      return (
+        <img
+          src={visualAssets.preview}
+          alt={deliverable.title}
+          className="w-full h-full object-cover"
+        />
+      );
+    }
+
+    // Color palette preview (design tokens)
     if (visualAssets?.colorPalette) {
       return (
         <div className="flex h-full">
@@ -107,22 +142,34 @@ export function DeliverableCard({ deliverable }: DeliverableCardProps) {
       );
     }
 
-    // Image preview
-    if (visualAssets?.preview && typeof visualAssets.preview === 'string' && visualAssets.preview.startsWith('/')) {
+    // Markdown preview with formatted content
+    if (extractedSection) {
       return (
-        <img
-          src={visualAssets.preview}
-          alt={deliverable.title}
-          className="w-full h-full object-cover"
-        />
-      );
-    }
-
-    // Text preview
-    if (textPreview) {
-      return (
-        <div className="p-5 text-[13px] leading-relaxed text-[var(--color-text-secondary)] text-left overflow-hidden w-full h-full line-clamp-8 font-[Inter,-apple-system,BlinkMacSystemFont,sans-serif]">
-          {textPreview}...
+        <div className="p-5 text-left overflow-hidden w-full h-full">
+          {/* Section label */}
+          <div className="text-[10px] uppercase tracking-wide font-semibold text-[var(--color-text-tertiary)] mb-2">
+            {extractedSection.sectionName}
+          </div>
+          {/* Formatted markdown content */}
+          <div className="text-[13px] leading-relaxed text-[var(--color-text-secondary)] prose prose-sm prose-invert max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h1: ({ node, ...props }) => <h3 className="text-base font-semibold mb-2 text-[var(--color-text-primary)]" {...props} />,
+                h2: ({ node, ...props }) => <h4 className="text-sm font-semibold mb-1.5 text-[var(--color-text-primary)]" {...props} />,
+                h3: ({ node, ...props }) => <h5 className="text-sm font-medium mb-1 text-[var(--color-text-primary)]" {...props} />,
+                p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-2 space-y-0.5" {...props} />,
+                ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-2 space-y-0.5" {...props} />,
+                li: ({ node, ...props }) => <li className="text-[13px]" {...props} />,
+                strong: ({ node, ...props }) => <strong className="font-semibold text-[var(--color-text-primary)]" {...props} />,
+                em: ({ node, ...props }) => <em className="italic" {...props} />,
+                code: ({ node, ...props }) => <code className="bg-[var(--color-background-tertiary)] px-1 py-0.5 rounded text-[12px]" {...props} />,
+              }}
+            >
+              {extractedSection.content}
+            </ReactMarkdown>
+          </div>
         </div>
       );
     }
@@ -139,12 +186,19 @@ export function DeliverableCard({ deliverable }: DeliverableCardProps) {
   };
 
   const handleViewFile = () => {
-    window.open(deliverable.filePath, '_blank');
+    setShowModal(true);
   };
 
   const skillLabel = deliverable.skill.replace('design-', '');
 
   return (
+    <>
+      {showModal && (
+        <FileViewerModal
+          deliverable={deliverable}
+          onClose={() => setShowModal(false)}
+        />
+      )}
     <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border)] rounded-lg overflow-hidden transition-all duration-200 hover:border-[var(--color-border-hover)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-lg)]">
       {/* Visual Preview */}
       <div className="w-full h-60 bg-[var(--color-background-primary)] border-b border-[var(--color-border)] flex items-center justify-center overflow-hidden relative">
@@ -182,5 +236,6 @@ export function DeliverableCard({ deliverable }: DeliverableCardProps) {
         </div>
       </div>
     </div>
+    </>
   );
 }

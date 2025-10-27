@@ -15,18 +15,32 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
     ? projects
     : projects.filter(p => p.status === filter);
 
+  const filterButtons: Array<{ label: string; value: ProjectStatus | 'all' }> = [
+    { label: 'All Projects', value: 'all' },
+    { label: 'Research', value: 'research' },
+    { label: 'Concepts', value: 'concepts' },
+    { label: 'Production', value: 'production' },
+    { label: 'QA', value: 'qa' },
+  ];
+
   return (
     <>
-      {/* Filter Buttons - Hidden for now, will be enabled in Phase 3 with proper routing */}
-      {/*
-      <div className="flex gap-2 mb-6">
-        <button onClick={() => setFilter('all')}>All</button>
-        <button onClick={() => setFilter('research')}>Research</button>
-        <button onClick={() => setFilter('concepts')}>Concepts</button>
-        <button onClick={() => setFilter('production')}>Production</button>
-        <button onClick={() => setFilter('qa')}>QA</button>
+      {/* Filter Buttons */}
+      <div className="flex gap-2 mb-6 flex-wrap">
+        {filterButtons.map(({ label, value }) => (
+          <button
+            key={value}
+            onClick={() => setFilter(value)}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline focus:outline-2 focus:outline-[var(--color-brand)] focus:outline-offset-2 ${
+              filter === value
+                ? 'bg-[var(--color-brand)] text-white shadow-md'
+                : 'bg-[var(--color-background-secondary)] text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-background-tertiary)]'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
       </div>
-      */}
 
       {/* Projects Grid */}
       {filteredProjects.length > 0 ? (
