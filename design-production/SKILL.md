@@ -404,31 +404,40 @@ const [data, setData] = useState(null);
 
 ### File Organization
 
-**IMPORTANT: Organize all deliverables by batch in dated folders.**
+**IMPORTANT: Organize all deliverables by feature/assignment in dated folders.**
 
-Each batch of production design work should be saved in its own folder:
-`docs/design/production-batch-{number}-{MMDDYY}/`
+Each production design project should be saved in its own folder with the feature name:
+`docs/design/{feature-name}-production-{MMDDYY}/`
+
+**Feature Name Guidelines:**
+- Use kebab-case (lowercase with hyphens)
+- Examples: `checkout-flow`, `user-profile`, `dashboard-redesign`, `search-filters`
+- Ask the user for the feature name if not provided
+- Suggest a name based on their description if needed
 
 **Examples:**
-- First production batch on Oct 24, 2025: `docs/design/production-batch-1-102425/`
-- Second production batch (updates): `docs/design/production-batch-2-110525/`
+- Checkout flow production specs on Oct 24, 2025: `docs/design/checkout-flow-production-102425/`
+- Checkout flow updates on Nov 5, 2025: `docs/design/checkout-flow-production-110525/`
+- User profile specs on Nov 10, 2025: `docs/design/user-profile-production-111025/`
 
 **Rationale:**
-- **Version history**: Tracks design iterations and handoff versions
-- **Prevents confusion**: Clear which specs correspond to which build
-- **Organized**: All production files for one batch stay together
+- **Immediate clarity**: Know what feature each file relates to
+- **Version history**: Same feature can have multiple dated iterations
+- **No conflicts**: Different features can have same-named files
+- **Clear handoff**: Which specs correspond to which feature/build
+- **Organized**: All production files for one feature stay together
 
-**Batch folder structure:**
+**Folder structure:**
 ```
-docs/design/production-batch-1-102425/
-├── design-specification.md
-├── component-implementation-guide.md
-├── design-tokens.js
-├── design-system.md
-├── prototype-production.jsx
-└── animations/
-    ├── loading-spinner.json
-    └── success-checkmark.json
+docs/design/{feature-name}-production-{MMDDYY}/
+├── {feature-name}-design-specification.md
+├── {feature-name}-component-guide.md
+├── {feature-name}-design-tokens.js
+├── {feature-name}-design-system.md
+├── {feature-name}-prototype.jsx
+└── {feature-name}-animations/
+    ├── {animation-name}.json
+    └── {animation-name}.json
 ```
 
 ### Figma Files
@@ -437,12 +446,12 @@ docs/design/production-batch-1-102425/
 - Page 1: Components library
 - Page 2: Screens (grouped by flow)
 - Page 3: Developer specs & annotations
-**Naming**: component-name, screen-name (kebab-case)
+**Naming**: `{feature-name}-component-name`, `{feature-name}-screen-name` (kebab-case)
 **Note**: Link to Figma file in design specification document
 
 ### High-Fidelity Prototypes
-**Location**: `docs/design/production-batch-{number}-{MMDDYY}/`
-**File**: `prototype-production.jsx` or `.html`
+**Location**: `docs/design/{feature-name}-production-{MMDDYY}/`
+**File**: `{feature-name}-prototype.jsx` or `.html`
 **Format**: React with full design system (or HTML/CSS)
 **Include**:
 - All screens in primary flow
@@ -452,8 +461,8 @@ docs/design/production-batch-1-102425/
 - Component library
 
 ### Design Specifications
-**Location**: `docs/design/production-batch-{number}-{MMDDYY}/`
-**File**: `design-specification.md`
+**Location**: `docs/design/{feature-name}-production-{MMDDYY}/`
+**File**: `{feature-name}-design-specification.md`
 **Format**: Markdown with embedded images
 **Include**:
 - Layout specifications
@@ -464,15 +473,15 @@ docs/design/production-batch-1-102425/
 - Asset list
 
 ### Animation Files
-**Location**: `docs/design/production-batch-{number}-{MMDDYY}/animations/`
+**Location**: `docs/design/{feature-name}-production-{MMDDYY}/{feature-name}-animations/`
 **File**: `{animation-name}.json`
 **Format**: Lottie JSON
 **Use cases**: Loading indicators, success confirmations, illustrations
 **Tools**: Export from After Effects or create programmatically
 
 ### Design System Documentation
-**Location**: `docs/design/production-batch-{number}-{MMDDYY}/`
-**File**: `design-system.md`
+**Location**: `docs/design/{feature-name}-production-{MMDDYY}/`
+**File**: `{feature-name}-design-system.md`
 **Format**: Markdown with code examples
 **Include**:
 - Design tokens

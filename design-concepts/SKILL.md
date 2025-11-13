@@ -374,46 +374,55 @@ Each concept should feel like it was designed by a different designer with a dif
 
 ### File Organization
 
-**IMPORTANT: Organize all deliverables by batch in dated folders.**
+**IMPORTANT: Organize all deliverables by feature/assignment in dated folders.**
 
-Each batch of concept work should be saved in its own folder:
+Each concept project should be saved in its own folder with the feature name:
 ```
-docs/design/concepts-batch-{number}-{MMDDYY}/
+docs/design/{feature-name}-concepts-{MMDDYY}/
 ```
+
+**Feature Name Guidelines:**
+- Use kebab-case (lowercase with hyphens)
+- Examples: `checkout-flow`, `user-profile`, `dashboard-redesign`, `search-filters`
+- Ask the user for the feature name if not provided
+- Suggest a name based on their description if needed
 
 **Examples:**
-- First concepts batch on Oct 24, 2025: `docs/design/concepts-batch-1-102425/`
-- Second concepts batch (refinement) on Oct 30, 2025: `docs/design/concepts-batch-2-103025/`
-- Third concepts batch on Nov 5, 2025: `docs/design/concepts-batch-3-110525/`
+- Checkout flow concepts on Oct 24, 2025: `docs/design/checkout-flow-concepts-102425/`
+- Checkout flow refinement on Oct 30, 2025: `docs/design/checkout-flow-concepts-103025/`
+- Dashboard layout concepts on Nov 5, 2025: `docs/design/dashboard-layout-concepts-110525/`
 
-**Why organize by batch:**
-- Maintains clear history of concept evolution
-- Easy to compare concepts across iterations
-- Prevents confusion about which is the latest version
-- Allows keeping all related files together (concepts, mood boards, overview)
+**Why organize by feature:**
+- **Immediate clarity**: Know what feature each file relates to
+- **Version history**: Same feature can have multiple dated iterations
+- **No conflicts**: Different features can have same-named files
+- **Easy comparison**: Compare concepts across iterations for same feature
+- **Organized**: All related files together (concepts, mood boards, overview)
 
-**Batch folder structure:**
+**Folder structure:**
 ```
-docs/design/concepts-batch-1-102425/
-├── mood-board.html
-├── concept-1-safe.html or .jsx
-├── concept-2-bold.html or .jsx
-├── concept-3-experimental.html or .jsx
-└── overview.md
+docs/design/{feature-name}-concepts-{MMDDYY}/
+├── {feature-name}-mood-board.html
+├── {feature-name}-concept-1-{variant}.html or .jsx
+├── {feature-name}-concept-2-{variant}.html or .jsx
+├── {feature-name}-concept-3-{variant}.html or .jsx
+└── {feature-name}-overview.md
 ```
 
 ### UI Design Concepts
-**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
-**File**: `concept-{number}-{name}.jsx` or `.html`
+**Location**: `docs/design/{feature-name}-concepts-{MMDDYY}/`
+**File**: `{feature-name}-concept-{number}-{variant}.jsx` or `.html`
 **Format**: React artifact or HTML with Tailwind
 **Include**:
 - 2-3 key screens showing the concept
 - Annotations explaining design decisions
 - Responsive behavior (if applicable)
 
+**Variant name examples**: `single-page`, `wizard`, `minimal`, `bold`, `experimental`
+
 ### Mood Boards
-**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
-**File**: `mood-board.html`
+**Location**: `docs/design/{feature-name}-concepts-{MMDDYY}/`
+**File**: `{feature-name}-mood-board.html`
 **Format**: HTML artifact with images and descriptions
 **Include**:
 - 2-3 visual directions
@@ -422,8 +431,8 @@ docs/design/concepts-batch-1-102425/
 - References/inspiration sources
 
 ### Prototypes
-**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
-**File**: `prototype-{name}.jsx`
+**Location**: `docs/design/{feature-name}-concepts-{MMDDYY}/`
+**File**: `{feature-name}-prototype-{variant}.jsx`
 **Format**: React artifact with interactivity
 **Include**:
 - Interactive key flows (3-7 screens)
@@ -432,11 +441,11 @@ docs/design/concepts-batch-1-102425/
 - Annotations for non-obvious interactions
 
 ### Design Concept Document
-**Location**: `docs/design/concepts-batch-{number}-{MMDDYY}/`
-**File**: `overview.md`
+**Location**: `docs/design/{feature-name}-concepts-{MMDDYY}/`
+**File**: `{feature-name}-overview.md`
 **Format**: Markdown summary document
 **Include**:
-- Links to all concept files in this batch
+- Links to all concept files for this feature
 - Comparison of different directions
 - Pros/cons of each approach
 - Recommendation (if asked)

@@ -237,39 +237,48 @@ Example: "Button padding is 8px instead of specified 12px"
 
 ### File Organization
 
-**IMPORTANT: Organize all deliverables by batch in dated folders.**
+**IMPORTANT: Organize all deliverables by feature/assignment in dated folders.**
 
-Each batch of QA review work should be saved in its own folder:
-`docs/design/qa-batch-{number}-{MMDDYY}/`
+Each QA review project should be saved in its own folder with the feature name:
+`docs/design/{feature-name}-qa-{MMDDYY}/`
+
+**Feature Name Guidelines:**
+- Use kebab-case (lowercase with hyphens)
+- Examples: `checkout-flow`, `user-profile`, `dashboard-redesign`, `search-filters`
+- Ask the user for the feature name if not provided
+- Suggest a name based on their description if needed
 
 **Examples:**
-- First QA review on Oct 24, 2025: `docs/design/qa-batch-1-102425/`
-- Second QA review (post-fixes): `docs/design/qa-batch-2-110125/`
+- Checkout flow QA review on Oct 24, 2025: `docs/design/checkout-flow-qa-102425/`
+- Checkout flow post-fixes QA on Nov 1, 2025: `docs/design/checkout-flow-qa-110125/`
+- User profile QA on Nov 10, 2025: `docs/design/user-profile-qa-111025/`
 
 **Rationale:**
-- **Version history**: Tracks QA findings across multiple review cycles
-- **Prevents confusion**: Clear which issues correspond to which build
-- **Organized**: All QA artifacts for one review cycle stay together
+- **Immediate clarity**: Know what feature each QA review relates to
+- **Version history**: Same feature can have multiple dated QA reviews
+- **No conflicts**: Different features can have same-named files
+- **Clear tracking**: Which issues correspond to which feature/build
+- **Organized**: All QA artifacts for one feature stay together
 
-**Batch folder structure:**
+**Folder structure:**
 ```
-docs/design/qa-batch-1-102425/
-├── design-qa-report.md
-├── design-qa-issues.csv
-├── spec-improvements.md
-└── screenshots/
+docs/design/{feature-name}-qa-{MMDDYY}/
+├── {feature-name}-qa-report.md
+├── {feature-name}-issues.csv
+├── {feature-name}-spec-improvements.md
+└── {feature-name}-screenshots/
     ├── issue-001-button-spacing.png
     ├── issue-002-color-contrast.png
     └── expected-vs-actual-comparison.png
 ```
 
 ### Design QA Report
-**Location**: `docs/design/qa-batch-{number}-{MMDDYY}/`
-**File**: `design-qa-report.md`
+**Location**: `docs/design/{feature-name}-qa-{MMDDYY}/`
+**File**: `{feature-name}-qa-report.md`
 **Format**: Markdown with embedded screenshots
 **Structure**:
 ```markdown
-# Design QA Report: [Product/Feature Name]
+# Design QA Report: [Feature Name]
 **Date**: [Date]
 **Reviewer**: Claude (Design QA Skill)
 **Scope**: [What was reviewed]
@@ -320,8 +329,8 @@ docs/design/qa-batch-1-102425/
 ```
 
 ### Issue Tracking Spreadsheet
-**Location**: `docs/design/qa-batch-{number}-{MMDDYY}/`
-**File**: `design-qa-issues.csv`
+**Location**: `docs/design/{feature-name}-qa-{MMDDYY}/`
+**File**: `{feature-name}-issues.csv`
 **Format**: CSV for import to project management tools
 **Columns**:
 - Issue ID
@@ -336,8 +345,8 @@ docs/design/qa-batch-1-102425/
 - Date Fixed
 
 ### Design Specification Feedback
-**Location**: `docs/design/qa-batch-{number}-{MMDDYY}/`
-**File**: `spec-improvements.md`
+**Location**: `docs/design/{feature-name}-qa-{MMDDYY}/`
+**File**: `{feature-name}-spec-improvements.md`
 **Format**: Markdown with specific suggestions
 **Purpose**: Help improve design documentation for future projects
 
