@@ -89,64 +89,7 @@ Or use the Skill tool in conversations:
 
 ## Example Projects
 
-### Design Dashboard (Included)
-
-A complete example showing all 4 skills in action:
-
-```bash
-cd outputs/design-dashboard/
-
-# Research phase deliverables
-ls research/
-# → personas.md, key-insights.md, design-principles.md
-
-# Concepts phase deliverables
-ls concepts/
-# → mood-board.html, wireframe-*.html, concept-summary.md
-
-# Production phase deliverables
-ls production/
-# → design-specification.md, component-implementation-guide.md, design-tokens.js
-
-# Generated roadmaps
-ls ../../roadmaps/
-# → design-dashboard-roadmap.md, .html, .json
-```
-
-## Feature Registry & Roadmaps
-
-This repo includes extracted features from the Design Dashboard example:
-
-```bash
-# Feature registry with dependencies
-cat design-dashboard-registry.csv
-
-# Generated roadmaps
-cat roadmaps/design-dashboard-roadmap.md    # Markdown format
-open roadmaps/design-dashboard-roadmap.html # Dark-themed HTML
-cat roadmaps/design-dashboard-roadmap.json  # JSON for dashboards
-```
-
-## Integration with Project Suite
-
-These design skills work alongside the Project Management Suite skills:
-
-**Optional: Install Project Suite** (for advanced features)
-```bash
-cd ..
-git clone https://github.com/mevans2120/project-suite-claude-skills.git
-cd project-suite-claude-skills
-./install.sh
-```
-
-**Combined Workflow:**
-1. **design-research** → Research insights
-2. **design-concepts** → Wireframes
-3. **design-production** → Specs
-4. **project-planner** → Extract features from specs → Roadmap
-5. **project-analyzer** → Verify implementation
-6. **project-manager** → Create GitHub issues
-7. **design-qa** → Review final implementation
+See `outputs/design-dashboard/` for complete examples of all 4 skills in action, including research artifacts, concept explorations, production specifications, and QA reviews.
 
 ## Customization
 
@@ -245,19 +188,6 @@ This will recreate all symlinks to point to the current repo location.
 ```bash
 chmod +x install.sh
 ./install.sh
-```
-
-### Outputs Not Being Created
-
-Check that Claude Code has write permissions:
-```bash
-ls -la outputs/
-# Should show writable directory
-```
-
-Create outputs directory if missing:
-```bash
-mkdir -p outputs
 ```
 
 ### Skill Not Found in Conversation

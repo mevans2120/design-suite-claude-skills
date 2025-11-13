@@ -1,11 +1,6 @@
 # Design Suite - Claude Skills
 
-End-to-end digital product design workflow: research → concepts → production → QA.
-
-**Part of a complete product development toolkit:**
-- **[Design Suite](https://github.com/mevans2120/design-suite-claude-skills)** ← You are here
-- **[Dev Suite](https://github.com/mevans2120/dev-suite-claude-skills)** - Development workflow skills
-- **[Project Suite](https://github.com/mevans2120/project-suite-claude-skills)** - Project management skills
+Complete digital product design workflow: research → concepts → production → QA.
 
 ## Installation
 
@@ -72,53 +67,11 @@ Or in conversations:
 
 ## Example Output
 
-See complete example in `outputs/design-dashboard/`:
+See complete examples in `outputs/design-dashboard/`:
 - Research deliverables: personas, principles, insights
-- Concepts deliverables: mood board, 3 wireframes, summary
-- Production deliverables: design spec (1000+ lines), component guide, tokens
-- Extracted features: 33 features with dependencies and roadmaps
-
-## Integration with Other Suites
-
-### With Dev Suite
-1. design-production creates specs
-2. Dev Suite implements features
-3. design-qa validates implementation
-
-### With Project Suite
-1. design-production creates specs
-2. project-planner extracts features → roadmap
-3. project-manager creates GitHub issues
-4. project-analyzer verifies production
-
-**Combined workflow:**
-```
-design-research → design-concepts → design-production
-                                         ↓
-                              project-planner (extract features)
-                                         ↓
-                              project-manager (create issues)
-                                         ↓
-                                 (dev implements)
-                                         ↓
-                              project-analyzer (verify)
-                                         ↓
-                                    design-qa (review)
-```
-
-## Feature Extraction
-
-Generate roadmaps from design specs:
-
-```bash
-# Uses project-planner (from Project Suite)
-node generate-roadmap.js
-
-# Creates:
-# - roadmaps/design-dashboard-roadmap.md
-# - roadmaps/design-dashboard-roadmap.html
-# - roadmaps/design-dashboard-roadmap.json
-```
+- Concepts deliverables: mood board, wireframes, concept summaries
+- Production deliverables: design specs, component guides, design tokens
+- QA deliverables: accessibility reviews, issue tracking
 
 ## Customization
 

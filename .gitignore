@@ -1,10 +1,26 @@
 .DS_Store
-outputs/*
-!outputs/design-dashboard/
 
-# Claude memory (auto-generated session data)
+# Claude memory and session data
 .claude-memory/
 memory-bank/
+
+# Planning and work-in-progress docs
+*-PLAN.md
+CLEANUP-*.md
+MIGRATION-*.md
+IMPLEMENTATION-GUIDE.md
+PROJECT-STRUCTURE.md
+QUICK-REFERENCE.md
+
+# Dashboard artifacts (not needed for skills)
+dashboard/
+dashboard-vite-archived/
+briefs/design-dashboard-brief.md
+docs/design-dashboard-*
+docs/roadmaps/
+docs/architecture/
+docs/DELIVERY-SUMMARY.md
+docs/generate-roadmap.*
 
 # Node modules
 node_modules/
