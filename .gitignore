@@ -16,11 +16,9 @@ QUICK-REFERENCE.md
 dashboard/
 dashboard-vite-archived/
 briefs/design-dashboard-brief.md
-docs/design-dashboard-*
-docs/roadmaps/
-docs/architecture/
-docs/DELIVERY-SUMMARY.md
-docs/generate-roadmap.*
+
+# Docs folder (working/planning documents)
+docs/
 
 # Node modules
 node_modules/
