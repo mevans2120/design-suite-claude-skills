@@ -1,6 +1,44 @@
 ---
 name: design-research
 description: Conducts user experience research and analysis to inform design decisions. Reviews first-party and third-party user data, analyzes industry trends from UX and visual design perspectives, and plans user research studies. Creates personas, customer segments, design principles, design roadmaps, and research discussion guides.
+triggers:
+  keywords:
+    - "user research"
+    - "persona"
+    - "personas"
+    - "who are our users"
+    - "who uses this"
+    - "target audience"
+    - "customer segments"
+    - "design principles"
+    - "user needs"
+    - "pain points"
+    - "jobs to be done"
+    - "JTBD"
+    - "user interviews"
+    - "discussion guide"
+    - "research plan"
+    - "competitive analysis"
+    - "understand the users"
+    - "user data"
+    - "analytics review"
+  contexts:
+    - "Starting a new product or feature with unknown users"
+    - "Have analytics, surveys, or interview data to analyze"
+    - "Need to understand user motivations before designing"
+    - "Planning user interviews or usability studies"
+    - "Creating or updating personas"
+    - "Defining design principles for a project"
+    - "Analyzing competitor products from a UX perspective"
+  prerequisites:
+    - "User data exists (analytics, surveys, interviews) OR planning to gather data"
+    - "Design direction not yet established OR need to validate assumptions"
+  anti_triggers:
+    - "Already have approved, recent personas for this project"
+    - "In implementation/coding phase"
+    - "Need visual mockups or prototypes (use design-concepts)"
+    - "Need production specs (use design-production)"
+    - "Reviewing built product (use design-qa)"
 ---
 
 # Design - Research

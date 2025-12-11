@@ -1,6 +1,45 @@
 ---
 name: design-concepts
 description: Creates conceptual designs that illustrate design strategy and approach. Leverages research insights and design briefs to develop UI concepts, mood boards, and interactive prototypes. Translates strategic direction into visual design explorations that communicate intent and gather feedback.
+triggers:
+  keywords:
+    - "mockup"
+    - "wireframe"
+    - "concept"
+    - "concepts"
+    - "mood board"
+    - "visual direction"
+    - "what should this look like"
+    - "design options"
+    - "explore designs"
+    - "UI design"
+    - "prototype"
+    - "design exploration"
+    - "visual style"
+    - "layout options"
+    - "design this"
+    - "show me designs"
+    - "create a design"
+    - "design variations"
+    - "look and feel"
+  contexts:
+    - "Have research insights or design brief ready"
+    - "Starting visual design for a new feature/product"
+    - "Need stakeholder buy-in on design direction"
+    - "Exploring multiple approaches before committing"
+    - "Major redesign or new product initiative"
+    - "Refining a chosen design direction based on feedback"
+    - "Need to communicate design intent visually"
+  prerequisites:
+    - "Research complete OR have clear design brief/requirements"
+    - "Know target users and their needs (even if informally)"
+    - "Not yet in production specification phase"
+  anti_triggers:
+    - "Need to understand users first (use design-research)"
+    - "Concept already approved, need detailed specs (use design-production)"
+    - "Reviewing implemented product (use design-qa)"
+    - "Writing code or implementing features"
+    - "Need pixel-perfect specifications for developers"
 ---
 
 # Design - Concepts

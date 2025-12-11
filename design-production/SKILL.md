@@ -1,6 +1,46 @@
 ---
 name: design-production
 description: Creates production-ready design files, prototypes, and specifications for development teams. Translates validated concepts into detailed, implementable designs with comprehensive specs for developers. Produces Figma files (via API), high-fidelity prototypes, design specifications, and animation files.
+triggers:
+  keywords:
+    - "design specs"
+    - "design specification"
+    - "developer handoff"
+    - "handoff"
+    - "design tokens"
+    - "component states"
+    - "production design"
+    - "design system"
+    - "pixel perfect"
+    - "responsive specs"
+    - "all states"
+    - "hover states"
+    - "error states"
+    - "loading states"
+    - "Figma file"
+    - "high fidelity"
+    - "implementation guide"
+    - "spacing specification"
+    - "ready for development"
+    - "ready for dev"
+  contexts:
+    - "Concept direction has been approved"
+    - "Ready to hand off to engineering team"
+    - "Need detailed specifications for implementation"
+    - "Creating or documenting design system"
+    - "Preparing assets and tokens for developers"
+    - "Need to specify all component states and interactions"
+    - "Converting approved design to implementable specs"
+  prerequisites:
+    - "Approved concept or design direction exists"
+    - "Know the target platforms and technical constraints"
+    - "Ready to provide pixel-level detail"
+  anti_triggers:
+    - "Still exploring design directions (use design-concepts)"
+    - "Need to understand users first (use design-research)"
+    - "Reviewing already-built product (use design-qa)"
+    - "Concept not yet approved by stakeholders"
+    - "Early ideation or brainstorming phase"
 ---
 
 # Design - Production

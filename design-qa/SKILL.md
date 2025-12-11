@@ -1,6 +1,45 @@
 ---
 name: design-qa
 description: Reviews finished and in-progress digital products to assess adherence to design specifications and discover potential issues with those specifications. Validates implementation against design intent, identifies visual and interaction discrepancies, and provides actionable feedback for design and engineering teams.
+triggers:
+  keywords:
+    - "design review"
+    - "design QA"
+    - "QA review"
+    - "does this match"
+    - "check implementation"
+    - "visual bugs"
+    - "compare to design"
+    - "match the specs"
+    - "review the build"
+    - "before launch"
+    - "pre-launch review"
+    - "implementation review"
+    - "verify design"
+    - "design validation"
+    - "spacing issues"
+    - "visual discrepancies"
+    - "accessibility review"
+    - "WCAG compliance"
+    - "responsive testing"
+  contexts:
+    - "Feature has been built and is on staging/production"
+    - "Ready to validate implementation against design specs"
+    - "Pre-launch quality check needed"
+    - "Reviewing pull request with UI changes"
+    - "Checking accessibility compliance"
+    - "Verifying responsive behavior across devices"
+    - "Comparing built product to Figma/design files"
+  prerequisites:
+    - "Built product or feature exists (staging URL, screenshots, or deployed)"
+    - "Design specifications or Figma files available for comparison"
+    - "Implementation is complete enough to review"
+  anti_triggers:
+    - "Still designing concepts (use design-concepts)"
+    - "Need to create production specs (use design-production)"
+    - "Need to understand users (use design-research)"
+    - "Nothing has been built yet"
+    - "Looking for UX/usability feedback (that's user testing, not design QA)"
 ---
 
 # Design - QA
