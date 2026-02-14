@@ -1,45 +1,6 @@
 ---
 name: design-qa
-description: Reviews finished and in-progress digital products to assess adherence to design specifications and discover potential issues with those specifications. Validates implementation against design intent, identifies visual and interaction discrepancies, and provides actionable feedback for design and engineering teams.
-triggers:
-  keywords:
-    - "design review"
-    - "design QA"
-    - "QA review"
-    - "does this match"
-    - "check implementation"
-    - "visual bugs"
-    - "compare to design"
-    - "match the specs"
-    - "review the build"
-    - "before launch"
-    - "pre-launch review"
-    - "implementation review"
-    - "verify design"
-    - "design validation"
-    - "spacing issues"
-    - "visual discrepancies"
-    - "accessibility review"
-    - "WCAG compliance"
-    - "responsive testing"
-  contexts:
-    - "Feature has been built and is on staging/production"
-    - "Ready to validate implementation against design specs"
-    - "Pre-launch quality check needed"
-    - "Reviewing pull request with UI changes"
-    - "Checking accessibility compliance"
-    - "Verifying responsive behavior across devices"
-    - "Comparing built product to Figma/design files"
-  prerequisites:
-    - "Built product or feature exists (staging URL, screenshots, or deployed)"
-    - "Design specifications or Figma files available for comparison"
-    - "Implementation is complete enough to review"
-  anti_triggers:
-    - "Still designing concepts (use design-concepts)"
-    - "Need to create production specs (use design-production)"
-    - "Need to understand users (use design-research)"
-    - "Nothing has been built yet"
-    - "Looking for UX/usability feedback (that's user testing, not design QA)"
+description: Reviews finished and in-progress digital products to assess adherence to design specifications and discover potential issues. Use when user says "design review", "design QA", "QA review", "check implementation", "visual bugs", "compare to design", "match the specs", "review the build", "before launch", "pre-launch review", "implementation review", "verify design", "design validation", "spacing issues", "visual discrepancies", "accessibility review", "WCAG compliance", or "responsive testing". Validates implementation against design intent, identifies visual and interaction discrepancies, and provides actionable feedback. Do NOT use when still designing concepts (use design-concepts), need to understand users (use design-research), or nothing has been built yet.
 ---
 
 # Design - QA
@@ -494,22 +455,19 @@ Visual inconsistency, harder to maintain, accessibility issues with unpredictabl
 ## Integration Points
 
 ### Inputs from Other Teams
-- **Design Production**: Design specifications, Figma files, brand guidelines
+- **Design Specs**: Design specifications, Figma files, brand guidelines
 - **Engineering**: Staging/development URLs, build status, technical constraints
 - **Product/PM**: Feature requirements, business priorities, launch timeline
 - **Design Research**: User needs context (to assess impact of issues)
 
 ### Outputs for Other Teams
 - **Engineering**: Prioritized issue list with specific fixes needed
-- **Design Production**: Specification gaps and improvements needed
 - **Product/PM**: Go/no-go recommendation based on issue severity
 - **Leadership**: Summary of quality status and risks
 
 ### Related Skills
-- Reviews output from **design-production** skill
 - May surface issues requiring **design-concepts** rethinking
-- Coordinates with **PM** teams on issue prioritization and timeline
-- May need **engineering** skills for technical feasibility discussions
+- Uses **design-research** insights to assess user impact of issues
 
 ## Review Checklists
 
@@ -639,7 +597,7 @@ Before submitting QA report:
 - [ ] Specification gaps noted
 - [ ] Positive observations included
 - [ ] Report is actionable and constructive
-- [ ] Files saved to `/mnt/user-data/outputs/`
+- [ ] Files saved to project's `docs/design/` directory
 - [ ] CSV issue tracker included (if requested)
 
 ## Sample QA Report Excerpt

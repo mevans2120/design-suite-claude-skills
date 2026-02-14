@@ -1,44 +1,6 @@
 ---
 name: design-research
-description: Conducts user experience research and analysis to inform design decisions. Reviews first-party and third-party user data, analyzes industry trends from UX and visual design perspectives, and plans user research studies. Creates personas, customer segments, design principles, design roadmaps, and research discussion guides.
-triggers:
-  keywords:
-    - "user research"
-    - "persona"
-    - "personas"
-    - "who are our users"
-    - "who uses this"
-    - "target audience"
-    - "customer segments"
-    - "design principles"
-    - "user needs"
-    - "pain points"
-    - "jobs to be done"
-    - "JTBD"
-    - "user interviews"
-    - "discussion guide"
-    - "research plan"
-    - "competitive analysis"
-    - "understand the users"
-    - "user data"
-    - "analytics review"
-  contexts:
-    - "Starting a new product or feature with unknown users"
-    - "Have analytics, surveys, or interview data to analyze"
-    - "Need to understand user motivations before designing"
-    - "Planning user interviews or usability studies"
-    - "Creating or updating personas"
-    - "Defining design principles for a project"
-    - "Analyzing competitor products from a UX perspective"
-  prerequisites:
-    - "User data exists (analytics, surveys, interviews) OR planning to gather data"
-    - "Design direction not yet established OR need to validate assumptions"
-  anti_triggers:
-    - "Already have approved, recent personas for this project"
-    - "In implementation/coding phase"
-    - "Need visual mockups or prototypes (use design-concepts)"
-    - "Need production specs (use design-production)"
-    - "Reviewing built product (use design-qa)"
+description: Conducts user experience research and analysis to inform design decisions. Use when user says "user research", "persona", "personas", "who are our users", "target audience", "customer segments", "design principles", "user needs", "pain points", "jobs to be done", "JTBD", "user interviews", "discussion guide", "research plan", "competitive analysis", "understand the users", "user data", or "analytics review". Reviews first-party and third-party user data, analyzes industry trends from UX and visual design perspectives, and plans user research studies. Creates personas, customer segments, design principles, design roadmaps, and research discussion guides. Do NOT use when already have approved personas, in implementation/coding phase, need visual mockups (use design-concepts), or reviewing built product (use design-qa).
 ---
 
 # Design - Research
@@ -322,16 +284,12 @@ docs/design/{feature-name}-research-{MMDDYY}/
 - **Product/PM**: Product requirements, business goals, success metrics
 - **Data/Analytics**: Usage data, conversion metrics, user behavior patterns
 - **Support/Sales**: Customer pain points, common questions, feature requests
-- **Design Production**: Existing design systems or components to consider
 
-### Outputs for Other Teams
+### Outputs for Other Skills
 - **Design Concepts**: Personas, design principles, key insights to inform concepts
-- **Design Production**: Research-backed requirements and user flows
+- **Design QA**: User needs context to assess impact of implementation issues
 - **Product/PM**: Prioritized opportunities, user segments, roadmap recommendations
 - **Engineering**: Context on user needs that inform technical decisions
-
-### Related Skills
-When users mention sprints, backlogs, or product requirements, consider that PM skills may be available to coordinate with.
 
 ## Tips for Best Results
 
@@ -350,7 +308,7 @@ Before delivering research artifacts, verify:
 - [ ] Personas represent distinct jobs-to-be-done, not just demographics
 - [ ] Design principles are specific enough to resolve design debates
 - [ ] Roadmap priorities are justified by research findings
-- [ ] All deliverables are in markdown format in `/mnt/user-data/outputs/`
+- [ ] All deliverables are in markdown format in the project's `docs/design/` directory
 - [ ] Artifacts are scannable and actionable for designers
 - [ ] Sources are cited for all data and quotes
 - [ ] Next steps or open questions are clearly identified
