@@ -16,14 +16,21 @@ Concept design is NOT final design - it's exploration and communication:
 - **Validate approach**: Get feedback before investing in implementation
 - **Build alignment**: Create shared understanding of design direction
 
-### Concept Design Process
+### Concept Design Process — Two Phases
+
+The concept design process is split into two sequential phases. Phase 1 establishes the shared design foundation. Phase 2 uses that foundation to generate concepts in parallel.
+
+**Phase 1 — Foundation (sequential, main agent):**
 1. **Brief Review**: Understand goals, constraints, research insights
 2. **Design Intent Interview**: Uncover emotional and experiential goals
 3. **Inspiration & Research**: Gather visual references from diverse sources
-4. **Lens Selection**: Choose conceptual lenses that fit the project context
-5. **Initial Concepts**: Develop 3 distinct concepts through chosen lenses (unless told otherwise)
-6. **Presentation**: Create artifacts that tell the story and invite feedback
-7. **Refinement** (if needed): Iterate on the chosen direction
+4. **Mood Board**: Create the visual foundation that all concepts build from
+5. **Lens Selection**: Choose 3 conceptual lenses that fit the project context
+
+**Phase 2 — Parallel Concept Generation (via subagents):**
+6. **Create Concepts**: Launch 3 subagents in parallel, one per lens, each producing one concept
+7. **Presentation**: Collect results and create artifacts that tell the story and invite feedback
+8. **Refinement** (if needed): Iterate on the chosen direction
 
 ### Why Multiple Concepts?
 Creating 3 concept variations is standard design practice **when initially exploring**:
@@ -42,7 +49,17 @@ Creating 3 concept variations is standard design practice **when initially explo
 - Different content priorities
 - Different emotional registers / aesthetic languages
 
-## Step 1: Brief Review & Context Gathering
+### Why Parallel Subagents?
+Generating concepts in parallel via subagents provides three key benefits:
+- **Speed**: 3 concepts generate simultaneously instead of sequentially
+- **Divergence**: Each subagent works in its own context window, reducing the tendency for concepts to converge or echo each other
+- **Shared foundation**: The mood board ensures all concepts share a cohesive design language while expressing it differently through their assigned lens
+
+---
+
+## Phase 1: Foundation
+
+### Step 1: Brief Review & Context Gathering
 
 **Gather Context:**
 ```
@@ -61,7 +78,7 @@ Use `view` to read:
 - Competitive analysis
 - Design briefs or requirements
 
-## Step 2: Design Intent Interview
+### Step 2: Design Intent Interview
 
 **CRITICAL: Do this before any visual work.** These questions give Claude strong creative constraints that produce varied, contextually appropriate concepts.
 
@@ -74,7 +91,7 @@ Ask the user:
 
 These four inputs dramatically shape the design direction. If the user gives even partial answers, use them as strong constraints. If they can't answer, propose options based on the brief and research.
 
-## Step 3: Inspiration & Research
+### Step 3: Inspiration & Research
 
 Use web tools to gather current design patterns:
 ```
@@ -83,7 +100,7 @@ web_search: "[design pattern] examples mobile"
 web_fetch: Dribbble, Behance, Awwwards for visual inspiration
 ```
 
-### Diverse Inspiration Sources
+#### Diverse Inspiration Sources
 
 **CRITICAL: Go beyond the usual Dribbble/Behance cycle.** These sources produce sameness. Deliberately seek inspiration from:
 
@@ -99,7 +116,9 @@ web_fetch: Dribbble, Behance, Awwwards for visual inspiration
 
 **Design Provocation Step:** Before creating concepts, find 2-3 unexpected visual references from *outside digital design* that connect to the project's emotional goals from the Design Intent Interview. Document why each reference connects to the user's stated feelings.
 
-### Mood Board Creation
+### Step 4: Mood Board Creation
+
+**PHASE GATE: The mood board MUST be created and saved to disk before any concept work begins.** The mood board is the shared design foundation that all three concept subagents will reference.
 
 **IMPORTANT: Mood boards MUST be visual HTML files, NOT markdown.**
 
@@ -161,9 +180,11 @@ Mood boards should include:
 </html>
 ```
 
-## Step 4: Lens Selection
+**After saving the mood board file**, confirm the file path and proceed to lens selection. Do NOT skip ahead to concept creation.
 
-### The Design Lens System
+### Step 5: Lens Selection
+
+#### The Design Lens System
 
 Instead of always producing "Safe / Bold / Experimental" archetypes, select conceptual lenses that are appropriate to the project. Each lens produces a fundamentally different design approach.
 
@@ -200,7 +221,7 @@ Instead of always producing "Safe / Bold / Experimental" archetypes, select conc
 | **Tool/Utility** | Minimal chrome, content is the interface | Editors, calculators, code tools |
 | **Discovery** | Browse-first, visual grid, serendipity | Marketplaces, media, social platforms |
 
-### How to Select Lenses
+#### How to Select Lenses
 
 1. Review the Design Intent Interview answers
 2. Consider the product type and user context
@@ -216,71 +237,111 @@ Instead of always producing "Safe / Bold / Experimental" archetypes, select conc
 
 Each lens produces a concept that feels like it was designed by a different designer with a different philosophy.
 
-## Step 5: Creating Concepts
+---
 
-### Frontend Aesthetics — Avoiding "AI Slop"
+## Phase 2: Parallel Concept Generation
 
-**CRITICAL:** You tend to converge toward generic outputs. Make creative, distinctive frontends that surprise and delight.
+### Step 6: Creating Concepts via Subagents
 
-**Typography** — Choose fonts that are beautiful, unique, and interesting:
-- Serif fonts for elegance: Fraunces, Newsreader, Lora, Crimson Pro
-- Display fonts for impact: Cabinet Grotesk, Clash Display, General Sans, Plus Jakarta Sans
-- Monospace for technical feel: JetBrains Mono, Fira Code, IBM Plex Mono
-- Unique sans-serifs: Satoshi, Syne, Manrope, DM Sans, Outfit
+**CRITICAL: Use the Agent tool to launch 3 subagents in parallel — one per lens.** All three Agent tool calls MUST be made in a single message so they run concurrently.
 
-**Avoid these overused fonts:** Inter, Roboto, Arial, system fonts (unless contextually appropriate), Space Grotesk
+Before launching subagents, prepare the shared context that each one needs:
+1. The **mood board file path** (from Step 4)
+2. The **design intent** (emotional targets, non-digital reference, anti-reference, design hero)
+3. Key **research insights** (personas, design principles, user jobs)
+4. The **design challenge** (what problem, for whom, constraints)
+5. The **fidelity level** (wireframes, mockups, or high-fi prototypes)
+6. The **output file path** for each concept
+7. The **concept number** (1, 2, or 3)
 
-**Color & Theme** — Commit to a cohesive aesthetic:
-- **Dominant + Accent**: 80% one color family, 20% sharp contrast
-- **Monochrome + single hue**: Grayscale with one bold color for CTAs
-- **Cultural aesthetics**: Draw from Brutalism, Memphis, Bauhaus, Vaporwave, etc.
+#### Subagent Prompt Template
 
-**Avoid:** Purple gradients on white, generic blue + gray, pastel everything, rainbow palettes with equal distribution
+Use this template for each of the 3 Agent tool calls. Fill in the bracketed values. Each subagent receives `subagent_type: "general-purpose"`.
 
-**Motion** — Focus on high-impact moments:
+```
+You are a concept designer creating ONE design concept for a project. You must create a complete, standalone design artifact.
+
+## Your Assignment
+- **Concept number**: [1, 2, or 3]
+- **Design lens**: [The specific lens name and category, e.g., "Scandinavian Functional (Aesthetic)"]
+- **Lens character**: [Brief description of the lens character from the lens table]
+
+## Design Foundation
+Read the mood board file at: [absolute path to mood board HTML file]
+This mood board establishes the shared design language. Your concept should build on this foundation while expressing it through your assigned lens.
+
+## Design Context
+- **Design challenge**: [What problem are we solving? For whom?]
+- **Emotional targets**: [The 3 adjectives from the Design Intent Interview]
+- **Non-digital reference**: [What they said]
+- **Anti-reference**: [What to avoid]
+- **Design hero**: [Aesthetic inspiration]
+- **Key research insights**: [Summarize 2-3 key insights from personas/research]
+- **Constraints**: [Brand guidelines, technical constraints, etc.]
+
+## Fidelity & Format
+- **Fidelity level**: [wireframes / mockups / high-fi prototypes]
+- **Format**: [HTML file / JSX file — based on fidelity]
+
+## Requirements
+Your concept MUST:
+- Name its design lens explicitly in annotations/comments within the file
+- Explain the strategic rationale (not just aesthetic choices)
+- Connect back to the emotional targets from the Design Intent Interview
+- Use a DIFFERENT font family from overused defaults (no Inter, Roboto, Arial, Space Grotesk)
+- Use a cohesive color approach that fits the lens
+- Annotate key decisions with WHY, tied to research insights
+- Use realistic content, NOT Lorem Ipsum
+- Consider responsive behavior
+- Verify color contrast meets minimum standards (4.5:1 for text)
+
+## Typography — Choose distinctive fonts:
+- Serif: Fraunces, Newsreader, Lora, Crimson Pro
+- Display: Cabinet Grotesk, Clash Display, General Sans, Plus Jakarta Sans
+- Monospace: JetBrains Mono, Fira Code, IBM Plex Mono
+- Sans-serif: Satoshi, Syne, Manrope, DM Sans, Outfit
+
+## Color & Theme — Commit to a cohesive aesthetic:
+- Dominant + Accent: 80% one color family, 20% sharp contrast
+- Monochrome + single hue: Grayscale with one bold color for CTAs
+- Cultural aesthetics: Draw from the lens character
+- AVOID: Purple gradients on white, generic blue + gray, pastel everything
+
+## Motion — Focus on high-impact moments:
 - Page load orchestration with staggered reveals
 - Transition between major states
 - Hover effects on key interactive elements
 
-**Backgrounds** — Create atmosphere:
+## Backgrounds — Create atmosphere:
 - Gradient meshes, noise textures, geometric patterns
 - Radial gradients, layered gradients, backdrop filters
 
-### Concept Format
+## Output
+Save the concept file to: [absolute path, e.g., docs/design/{feature-name}-concepts-{MMDDYY}/{feature-name}-concept-[N]-{lens-name}.html]
 
-**For Wireframes/Low-Fi:**
-```html
-<!-- Focus on layout, hierarchy, content structure -->
-<!-- Use grayscale, simple shapes, annotate key decisions -->
+IMPORTANT: Write the COMPLETE file. Do not leave placeholder sections. This must be a fully realized concept that can be opened in a browser and evaluated.
 ```
 
-**For Visual Mockups/Mid-Hi Fi:**
-```jsx
-// Use Tailwind for rapid styling
-// Focus on key screens, not complete flows
-// Include annotations explaining design decisions
+#### Launching the Subagents
+
+**All 3 Agent calls MUST appear in a single message.** This ensures they run in parallel. Example:
+
+```
+Use the Agent tool three times in one message:
+  Agent 1: description="Concept 1: [lens-name]", subagent_type="general-purpose", prompt=[filled template for lens 1]
+  Agent 2: description="Concept 2: [lens-name]", subagent_type="general-purpose", prompt=[filled template for lens 2]
+  Agent 3: description="Concept 3: [lens-name]", subagent_type="general-purpose", prompt=[filled template for lens 3]
 ```
 
-**For Interactive Prototypes:**
-```jsx
-// Use React hooks for state management
-// Create realistic interactions for key flows
-// Add transition/animation for important interactions
-```
+**After all 3 subagents complete**, read each concept file to verify they were created successfully, then proceed to Step 7.
 
-### Per-Concept Requirements
+#### Single Concept Mode
 
-Each concept MUST:
-- Name its design lens explicitly
-- Explain the strategic rationale (not just aesthetic choices)
-- Connect back to the emotional targets from the Design Intent Interview
-- Use a different font family from the other concepts
-- Use a different color approach from the other concepts
-- Annotate key decisions with WHY, tied to research insights
+When creating only 1 concept (refinement, iteration, minor updates), skip the subagent approach and create the concept directly in the main agent context.
 
-## Step 6: Presentation
+### Step 7: Presentation
 
-### File Organization
+#### File Organization
 
 **Organize all deliverables by feature/assignment in dated folders:**
 
@@ -297,7 +358,7 @@ docs/design/{feature-name}-concepts-{MMDDYY}/
 - Use kebab-case (lowercase with hyphens)
 - Ask the user for the feature name if not provided
 
-### Design Concept Document
+#### Design Concept Document
 
 **File**: `{feature-name}-overview.md`
 
@@ -338,6 +399,8 @@ docs/design/{feature-name}-concepts-{MMDDYY}/
 - [ ] Test [specific assumption] with users
 - [ ] Refine chosen direction into implementation
 ```
+
+---
 
 ## Quality Criteria
 
@@ -393,6 +456,10 @@ docs/design/{feature-name}-concepts-{MMDDYY}/
 **Problem**: Concepts requiring tech that doesn't exist or can't be built in timeline
 **Instead**: Check technical constraints early, design within feasible boundaries
 
+### Skipping the Mood Board
+**Problem**: Jumping straight to concept creation without establishing a shared foundation
+**Instead**: Always complete the mood board first. It ensures all concepts share a cohesive design language and gives subagents the context they need to produce coherent work.
+
 ## Design Patterns Library
 
 **Navigation Patterns**: Tab bars, hamburger menu, bottom sheets, breadcrumbs, command palette, sidebar
@@ -422,8 +489,9 @@ docs/design/{feature-name}-concepts-{MMDDYY}/
 Before delivering concept artifacts, verify:
 - [ ] Conducted Design Intent Interview (or used brief as proxy)
 - [ ] Gathered inspiration from diverse sources (not just Dribbble)
+- [ ] Created mood board HTML file and saved to disk BEFORE concept work
 - [ ] Selected 3 design lenses appropriate to the project context
-- [ ] **For initial exploration**: Created 3 meaningfully different concepts using different lenses
+- [ ] **For initial exploration**: Launched 3 subagents in parallel, one per lens
 - [ ] **For refinement**: Focused on iterating 1 chosen concept based on feedback
 - [ ] Each concept uses a different font family and color approach
 - [ ] Each concept is annotated with rationale tied to research and emotional targets
