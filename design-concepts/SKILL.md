@@ -222,13 +222,22 @@ Each lens produces a concept that feels like it was designed by a different desi
 
 **CRITICAL:** You tend to converge toward generic outputs. Make creative, distinctive frontends that surprise and delight.
 
-**Typography** — Choose fonts that are beautiful, unique, and interesting:
-- Serif fonts for elegance: Fraunces, Newsreader, Lora, Crimson Pro
-- Display fonts for impact: Cabinet Grotesk, Clash Display, General Sans, Plus Jakarta Sans
-- Monospace for technical feel: JetBrains Mono, Fira Code, IBM Plex Mono
-- Unique sans-serifs: Satoshi, Syne, Manrope, DM Sans, Outfit
+**Typography** — Research fonts for each project. Do NOT fall back on the same familiar set every time.
 
-**Avoid these overused fonts:** Inter, Roboto, Arial, system fonts (unless contextually appropriate), Space Grotesk
+**Before choosing fonts, you MUST:**
+1. Run a web search for fonts that match the project's emotional targets and industry (e.g., `"best Google Fonts for [warm/bold/elegant] [restaurant/SaaS/editorial] design 2025"`)
+2. Search for fonts used by the design heroes or non-digital references from the Design Intent Interview (e.g., `"fonts similar to [brand] typography"`)
+3. Browse Google Fonts filtered by the aesthetic you need — look beyond page 1 results
+4. Pick fonts you have NOT used in recent concepts for this user — track what you've already chosen and avoid repeating
+
+**Selection criteria:**
+- Does it match the emotional targets from the Design Intent Interview?
+- Is it distinctive enough to give this project its own identity?
+- Does it have the weights and styles needed (italic, bold, etc.)?
+- Is it available on Google Fonts (or another free CDN) for easy embedding?
+- Have you already used this font in another concept in this session? If yes, pick something else.
+
+**Avoid these overused fonts:** Inter, Roboto, Arial, system fonts (unless contextually appropriate), Space Grotesk, Fraunces, Lora, Crimson Pro, Syne — and any font you find yourself reaching for by default
 
 **Color & Theme** — Commit to a cohesive aesthetic:
 - **Dominant + Accent**: 80% one color family, 20% sharp contrast
