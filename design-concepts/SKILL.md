@@ -255,6 +255,14 @@ Each lens produces a concept that feels like it was designed by a different desi
 - Gradient meshes, noise textures, geometric patterns
 - Radial gradients, layered gradients, backdrop filters
 
+**Photography & Illustration** — Source imagery intentionally for each concept.
+
+1. **Use free, embeddable photo sources** — Unsplash (`images.unsplash.com` URLs) is preferred for hotlinking in HTML concepts. Pexels also works. Pixabay does NOT allow hotlinking.
+2. **Always provide CSS gradient fallbacks** — Layer photos behind semi-transparent gradients so concepts still look complete if images fail to load.
+3. **Match photo treatment to the concept's lens** — desaturate/high-contrast for editorial, warm overlays for organic, color-tinted overlays for themed concepts.
+4. **Use inline SVGs for decorative illustration** — botanical elements, geometric patterns, brand marks. Keep them simple and tied to the concept's visual language.
+5. **Note what you couldn't source** — If a concept needs imagery you can't find freely (venue-specific, custom illustration), use the best available alternative and note it for the client.
+
 ### Concept Format
 
 **For Wireframes/Low-Fi:**
