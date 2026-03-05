@@ -106,10 +106,16 @@ web_fetch: Dribbble, Behance, Awwwards for visual inspiration
 Mood boards should include:
 1. **Color Palette**: Actual color swatches with hex values and usage descriptions
 2. **Typography Samples**: Real text at different sizes showing the font in use
-3. **Spacing Scale**: Visual representation of spacing units
-4. **Component Examples**: Interactive examples showing hover states, transitions
-5. **Non-Digital References**: Screenshots/descriptions of the inspiration sources from outside digital design
-6. **Design Rationale**: Why these choices support user jobs and the emotional targets from the Design Intent Interview
+3. **Imagery & Illustration Direction**: Per-concept photo treatment and illustration style (see below)
+4. **Spacing Scale**: Visual representation of spacing units
+5. **Component Examples**: Interactive examples showing hover states, transitions
+6. **Non-Digital References**: Screenshots/descriptions of the inspiration sources from outside digital design
+7. **Design Rationale**: Why these choices support user jobs and the emotional targets from the Design Intent Interview
+
+**Imagery & Illustration Direction** — Each concept should define its own visual treatment for photos and illustrations, just like each uses a different font and color palette. Include in the mood board:
+- **Photo treatment**: How photos are styled — warm overlays, desaturation, high-contrast B&W, duotone, color tinting, grain/noise, etc.
+- **Illustration style**: What decorative elements accompany the concept — hand-drawn, geometric, botanical, art deco, minimal line art, halftone, etc.
+- **Example pairings**: Show 1-2 sample photos with the treatment applied, alongside the illustration style, so the difference between concepts is visible in the mood board itself.
 
 **Format**: Static HTML file (save as `.html`, NOT `.md`)
 
@@ -145,6 +151,13 @@ Mood boards should include:
   <section>
     <h2>Typography</h2>
     <!-- Real text rendered at size, not described -->
+  </section>
+
+  <section>
+    <h2>Imagery & Illustration Direction</h2>
+    <!-- Per-concept: photo treatment (overlays, filters, grain) -->
+    <!-- Per-concept: illustration style (geometric, botanical, line art) -->
+    <!-- Show example photos WITH the treatment applied -->
   </section>
 
   <section>
@@ -255,12 +268,12 @@ Each lens produces a concept that feels like it was designed by a different desi
 - Gradient meshes, noise textures, geometric patterns
 - Radial gradients, layered gradients, backdrop filters
 
-**Photography & Illustration** — Source imagery intentionally for each concept.
+**Photography & Illustration** — Each concept MUST have a distinct imagery approach, just like each has distinct typography and color. Do NOT reuse the same photo treatment or illustration style across concepts.
 
-1. **Use free, embeddable photo sources** — Unsplash (`images.unsplash.com` URLs) is preferred for hotlinking in HTML concepts. Pexels also works. Pixabay does NOT allow hotlinking.
-2. **Always provide CSS gradient fallbacks** — Layer photos behind semi-transparent gradients so concepts still look complete if images fail to load.
-3. **Match photo treatment to the concept's lens** — desaturate/high-contrast for editorial, warm overlays for organic, color-tinted overlays for themed concepts.
-4. **Use inline SVGs for decorative illustration** — botanical elements, geometric patterns, brand marks. Keep them simple and tied to the concept's visual language.
+1. **Different photo treatment per concept** — Each lens implies a different way to handle photos. Examples: warm amber overlays for organic, high-contrast B&W or desaturated for editorial, duotone/color-tinted for themed, soft grain for vintage. Define the treatment in the mood board and apply it consistently in the concept.
+2. **Different illustration style per concept** — Each concept should use a different decorative language. Examples: botanical SVGs for organic, bold geometric shapes for editorial, art deco line work for neo-deco, hand-drawn sketches for playful. Inline SVGs work well for HTML concepts.
+3. **Use free, embeddable photo sources** — Unsplash (`images.unsplash.com` URLs) is preferred for hotlinking in HTML concepts. Pexels also works. Pixabay does NOT allow hotlinking.
+4. **Always provide CSS gradient fallbacks** — Layer photos behind semi-transparent gradients so concepts still look complete if images fail to load.
 5. **Note what you couldn't source** — If a concept needs imagery you can't find freely (venue-specific, custom illustration), use the best available alternative and note it for the client.
 
 ### Concept Format
