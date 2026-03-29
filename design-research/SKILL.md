@@ -1,6 +1,6 @@
 ---
 name: design-research
-description: Conducts user experience research and analysis to inform design decisions. Use when user says "user research", "persona", "personas", "who are our users", "target audience", "customer segments", "design principles", "user needs", "pain points", "jobs to be done", "JTBD", "user interviews", "discussion guide", "research plan", "competitive analysis", "understand the users", "user data", or "analytics review". Reviews first-party and third-party user data, analyzes industry trends from UX and visual design perspectives, and plans user research studies. Creates personas, customer segments, design principles, design roadmaps, and research discussion guides. Do NOT use when already have approved personas, in implementation/coding phase, need visual mockups (use design-concepts), or reviewing built product (use design-qa).
+description: Conducts user experience research and analysis to inform design decisions. Use when user says "user research", "persona", "personas", "who are our users", "target audience", "customer segments", "design principles", "user needs", "pain points", "jobs to be done", "JTBD", "user interviews", "discussion guide", "research plan", "competitive analysis", "understand the users", "user data", "analytics review", "component research", "pattern audit", "accessibility requirements for [component]", or "how do others design [component type]". Reviews first-party and third-party user data, analyzes industry trends from UX and visual design perspectives, and plans user research studies. Also conducts component-level research: auditing existing patterns, accessibility requirements, interaction best practices, and content structure analysis to inform component design within an existing design system. Creates personas, customer segments, design principles, design roadmaps, research discussion guides, and component research audits. Do NOT use when already have approved personas, in implementation/coding phase, need visual mockups (use design-concepts), designing components (use design-components), or reviewing built product (use design-qa).
 ---
 
 # Design - Research
@@ -103,6 +103,96 @@ For planning user research studies:
 - Thank participant
 ```
 
+## Component Research
+
+When research is feeding into **design-components** (designing within an existing design system), the research focus shifts from "who are the users" to "what does this component need to do well." This is a faster, more focused research mode.
+
+### When to Use Component Research
+- Before designing a new component type that doesn't exist in the project yet
+- When a component redesign needs evidence beyond "it doesn't look right"
+- When accessibility or interaction requirements are unclear for a component type
+- When the team disagrees about how a component should behave
+
+### Component Research Process
+
+**1. Internal Pattern Audit**
+Read the project's existing codebase to understand established patterns:
+```
+- What similar components already exist? How are they structured?
+- What design tokens are in use? (globals.css, tailwind.config, component library)
+- What interaction patterns are established? (hover, focus, animation conventions)
+- What states do existing components handle? (empty, loading, error, etc.)
+- Are there documented conventions? (docs/design/, style guides, CLAUDE.md)
+```
+
+**2. Accessibility Requirements**
+Research WCAG requirements specific to the component type:
+```
+web_search: "[component type] WCAG accessibility requirements"
+web_search: "[component type] aria roles and attributes"
+web_search: "[component type] keyboard navigation pattern"
+```
+
+Document:
+- Required ARIA roles and attributes
+- Keyboard interaction expectations (Tab, Enter, Escape, Arrow keys)
+- Screen reader announcements for state changes
+- Color contrast requirements beyond the 4.5:1 baseline
+- Motion/animation considerations (prefers-reduced-motion)
+
+**3. Interaction Pattern Best Practices**
+Research how well-designed implementations handle this component:
+```
+web_search: "best [component type] UX patterns 2025"
+web_search: "[component type] interaction design examples"
+web_fetch: specific component libraries (Radix, Headless UI, Ark UI) for reference implementations
+```
+
+Focus on:
+- What information users need first vs. on-demand
+- Common interaction mistakes for this component type
+- Mobile vs. desktop behavior differences
+- Edge cases (overflow, long content, missing data, many items)
+
+**4. Content & Data Structure**
+Understand what the component will actually contain:
+- What data types and ranges? (short labels vs. long descriptions, 3 items vs. 300)
+- What's required vs. optional?
+- What content causes layout problems? (long names, missing images, zero states)
+- How does the content change over time? (real-time updates, stale data)
+
+### Component Research Deliverable
+
+**File**: `{component-name}-component-audit.md`
+
+```markdown
+# [Component Name] — Research Audit
+
+## Internal Patterns
+- **Existing similar components**: [what already exists and how it works]
+- **Design system tokens**: [key tokens relevant to this component]
+- **Established conventions**: [patterns this component should follow]
+
+## Accessibility Requirements
+- **ARIA**: [required roles, attributes, live regions]
+- **Keyboard**: [expected keyboard interactions]
+- **Screen reader**: [announcement expectations for states]
+- **Motion**: [animation considerations]
+
+## Interaction Patterns
+- **Best practices**: [what works well for this component type]
+- **Common mistakes**: [what to avoid]
+- **Mobile considerations**: [touch targets, gestures, viewport]
+
+## Content Analysis
+- **Data shape**: [what content this component handles]
+- **Edge cases**: [overflow, empty, error, extreme values]
+- **Dynamic behavior**: [how content changes over time]
+
+## Recommendations
+[Key insights that should inform the component design]
+```
+
 ## Quality Criteria
 
 ### Excellent Personas Include:
@@ -183,7 +273,8 @@ docs/design/{feature-name}-research-{MMDDYY}/
 ├── {feature-name}-customer-segments.md
 ├── {feature-name}-design-principles.md
 ├── {feature-name}-design-roadmap.md
-└── {feature-name}-research-discussion-guide.md
+├── {feature-name}-research-discussion-guide.md
+└── {feature-name}-component-audit.md          (for component research)
 ```
 
 ### Personas
@@ -286,7 +377,8 @@ docs/design/{feature-name}-research-{MMDDYY}/
 - **Support/Sales**: Customer pain points, common questions, feature requests
 
 ### Outputs for Other Skills
-- **Design Concepts**: Personas, design principles, key insights to inform concepts
+- **Design Concepts**: Personas, design principles, key insights to inform new visual directions
+- **Design Components**: Component audits, accessibility requirements, interaction patterns to inform component design within existing systems
 - **Design QA**: User needs context to assess impact of implementation issues
 - **Product/PM**: Prioritized opportunities, user segments, roadmap recommendations
 - **Engineering**: Context on user needs that inform technical decisions
